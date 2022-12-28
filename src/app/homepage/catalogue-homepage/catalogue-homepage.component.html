@@ -1,0 +1,22 @@
+<div class="px-20">
+    <div class="flex justify-between w-100 pt-8 flex-wrap align-middle">
+        <h2 class="font-bold text-2xl">Devenez le parfait Gymbro</h2>
+        <p class="w-2/4">Nos meilleures ventes avec des logos réalisés par l'équipe MyPoutchi sur des tissus de bonne
+            facture aux
+            meilleurs prix</p>
+    </div>
+
+    <div class="flex justify-between pt-10">
+        <div *ngFor="let itemCatalogue of catalogue" class="w-80 h-80 top_vente__container
+    rounded-md hover:text-white bg-black flex flex-col justify-center">
+            <div class="bg-black rounded-md hover:rounded-b-none flex justify-center">
+                <img src="../../../assets/images/gymbro.png" alt="gymbro">
+            </div>
+            <div class="text__description text-center hover:left-44 hover:text-white">
+                <h3 class="font-bold">{{itemCatalogue.Title}}</h3>
+                <p>{{itemCatalogue.Description}}</p>
+                <span>{{itemCatalogue.Price}}$</span>
+            </div>
+        </div>
+    </div>
+</div>
