@@ -12,21 +12,38 @@ export class CatalogueHomepageComponent implements OnInit {
   constructor() {
     this.catalogue = [{
       Id: 1,
-      Title: "Toto",
-      Description: "Toto à la plage",
-      Price: 12,
+      Title: "Comp Poutchi Tees",
+      Categorie: "Gym Bro",
+      Price: 29.99,
+      Image: "../../../assets/images/gymbro.jpg",
+      SecImage: "../../../assets/images/gymbro.png"
     },
     {
       Id: 2,
-      Title: "Tata",
-      Description: "Tata à la plage",
-      Price: 2,
+      Title: "Comp Poutchi Tees",
+      Categorie: "Gym Bro",
+      Price: 29.99,
+      Image: "../../../assets/images/gymbro.png",
+      SecImage: "../../../assets/images/gymbro.png"
+
     },
     {
       Id: 3,
-      Title: "Titi",
-      Description: "Titi à la plage",
-      Price: 3,
+      Title: "Poutchi Bonnet",
+      Categorie: "Bonnet",
+      Price: 19.99,
+      Image: "../../../assets/images/poutchibonnet.jpg",
+      SecImage: "../../../assets/images/gymbro.png"
+
+    },
+    {
+      Id: 4,
+      Title: "Poutchi Nrv",
+      Categorie: "Hoodies",
+      Price: 39.99,
+      Image: "../../../assets/images/nrv.png",
+      SecImage: "../../../assets/images/gymbro.png"
+
     }]
   }
 

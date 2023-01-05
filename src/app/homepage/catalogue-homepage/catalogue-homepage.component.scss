@@ -1,14 +1,20 @@
-.text__description{
-    display: none;
+.catalogue__container{
+   
+}
+.image_container{
+    height: 400px;
+    img{
+        object-fit: cover;
+        
+    }
 }
 
-.top_vente__container{
-    :hover{
-        background-color: #fff;
-        .text__description{
-            display:block;
-            position: absolute
+.price{
+    color: #4169E1
+}
+
+.btn-boutique{
+    background-color: #4169E1;
         
-        }
-    }
+    
 }

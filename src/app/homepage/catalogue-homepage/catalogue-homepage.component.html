@@ -1,22 +1,27 @@
-<div class="px-20">
-    <div class="flex justify-between w-100 pt-8 flex-wrap align-middle">
+<div class="px-20 catalogue__container">
+    <div class="flex justify-around w-100 pt-8 flex-wrap align-middle">
         <h2 class="font-bold text-2xl">Devenez le parfait Gymbro</h2>
         <p class="w-2/4">Nos meilleures ventes avec des logos réalisés par l'équipe MyPoutchi sur des tissus de bonne
             facture aux
             meilleurs prix</p>
     </div>
 
-    <div class="flex justify-between pt-10">
-        <div *ngFor="let itemCatalogue of catalogue" class="w-80 h-80 top_vente__container
-    rounded-md hover:text-white bg-black flex flex-col justify-center">
-            <div class="bg-black rounded-md hover:rounded-b-none flex justify-center">
-                <img src="../../../assets/images/gymbro.png" alt="gymbro">
+    <div class="flex justify-center py-10 top_vente__container">
+        <div *ngFor="let itemCatalogue of catalogue" class="w-80
+    rounded-md flex flex-col justify-center mx-2">
+            <div class="bg-black rounded-md hover:rounded-b-none flex justify-center image_container hover:scale-105 transition-all ease-in-out">
+                <img class="rounded-md" [src]="itemCatalogue.Image" alt="gymbro" (mouseover)="itemCatalogue.SecImage"
+                (mouseout)="itemCatalogue.Image">
             </div>
-            <div class="text__description text-center hover:left-44 hover:text-white">
-                <h3 class="font-bold">{{itemCatalogue.Title}}</h3>
-                <p>{{itemCatalogue.Description}}</p>
-                <span>{{itemCatalogue.Price}}$</span>
+            <div class="text__description text-center pt-3">
+                <span class="text-gray-400">{{itemCatalogue.Categorie}}</span>
+                <h3 class="font-bold uppercase my-1">{{itemCatalogue.Title}}</h3>
+                <span class="price font-bold my-1">{{itemCatalogue.Price}} €</span>
             </div>
         </div>
+    </div>
+
+    <div class="w-full flex justify-center pb-20 btn__container">
+        <button class="btn-boutique text-white p-2 rounded-sm w-48">Voir la boutique</button>
     </div>
 </div>

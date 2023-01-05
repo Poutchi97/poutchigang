@@ -1,6 +1,8 @@
 export interface ICatalogue {
     Id: number,
     Title: string,
-    Description: string,
+    Categorie: string,
     Price: number
+    Image: string
+    SecImage: string
 }
