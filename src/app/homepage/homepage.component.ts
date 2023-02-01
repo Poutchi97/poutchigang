@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _router: Router
+  ) { }
 
   ngOnInit(): void {
   }
+
+  displayDetailProduit(id: number) {
+    // let currentProduit = this.
+    // this._router.navigateByUrl('/boutique/produit/' + )
+  }
+
+
 
 }

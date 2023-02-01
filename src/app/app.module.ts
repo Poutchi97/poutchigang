@@ -10,8 +10,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { CoachingComponent } from './coaching/coaching.component';
+import { ProduitUniqueComponent } from './produit-unique/produit-unique.component';
+import { PresentationCoachingComponent } from './homepage/presentation-coaching/presentation-coaching.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -22,13 +25,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CatalogueHomepageComponent,
     FooterComponent,
     BoutiqueComponent,
-    CoachingComponent
+    CoachingComponent,
+    ProduitUniqueComponent,
+    PresentationCoachingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SidebarModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

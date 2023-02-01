@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-between;
     color: #ececec;
-    padding: 0 40px;
-    background-color: #4169E1;
+    padding: 40px;
+    // background-color: #4169E1;
     height: 55px
 }
 
@@ -34,6 +34,7 @@
     li{
         padding: 0 10px;
         cursor: pointer;
+        color: black;
 
         button{
             cursor: pointer;
