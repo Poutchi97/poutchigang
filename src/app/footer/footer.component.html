@@ -1,13 +1,36 @@
-<div class="h-60 bg-black text-white">
-    <div class="h-full">
+<div class="h-48 bg-[#252525] text-white">
+    <div class="h-full flex items-center pl-12 justify-around">
         <div class="">
-            <div>
-                <div>Accueil</div>
-                <div>Boutique</div>
-                <div>Motivation</div>
-                <div>Contact</div>
-            </div>
+            <ul class="flex flex-col justify-evenly h-28">
+                <li class="hover:font-medium"><a routerLink="">Accueil</a></li>
+                <li class="hover:font-medium"><a routerLink="/boutique">Boutique</a></li>
+                <li class="hover:font-medium"><a routerLink="/coaching">Coaching</a></li>
+            </ul>
+        </div>
+
+        <div class="flex flex-col justify-evenly h-40">
+            <p class="max-w-sm">
+                Une envie de coaching ?
+                Cliquez sur le bouton et réserver ta séance !
+            </p>
+            <button routerLink="/coaching"
+                class="rounded-md bg-blue-600 text-white transition duration-300 p-2 w-28 hover:bg-blue-700">
+                Coaching
+            </button>
+        </div>
+
+        <div class="flex flex-col justify-evenly h-40">
+            <p class="p-0 m-0 max-w-sm">
+                Toi aussi tu veux t'habiller aux couleurs de Poutchi ?
+                Alors vas voir notre boutique et commande sans
+                plus tarder.
+                N'hésites pas a poster une photo de toi avec ;)
+
+            </p>
+            <button routerLink="/boutique"
+                class="rounded-md bg-blue-600 text-white transition duration-300 p-2 w-28 hover:bg-blue-700">
+                Boutique
+            </button>
         </div>
     </div>
-
 </div>
