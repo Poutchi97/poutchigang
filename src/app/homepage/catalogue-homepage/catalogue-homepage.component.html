@@ -1,14 +1,14 @@
-<div class="px-20 catalogue__container max-w-[1350px] flex, mx-auto relative h-[850px]">
-    <div class="flex justify-between mx-2 w-100 pt-8 flex-wrap align-middle items-end flex-col">
+<div class="px-20 catalogue__container max-w-[1504px] flex, mx-auto relative ">
+    <div class="flex justify-between mx-2 w-100 pt-8 flex-wrap align-middle flex-col">
         <h2 class="font-bold text-2xl capitalize">Devenez le parfait Gymbro</h2>
-        <p class="w-2/4">Nos meilleures ventes avec des logos réalisés par l'équipe Poutchi sur des tissus de bonne
+        <p class="">Nos meilleures ventes avec des logos réalisés par l'équipe Poutchi sur des tissus de bonne
             facture aux
             meilleurs prix</p>
     </div>
 
-    <div class="flex py-10 top_vente__container">
+    <div class="flex py-10 top_vente__container flex-wrap">
         <div *ngFor="let itemCatalogue of catalogue" class="w-80
-    rounded-md flex flex-col justify-center mx-2">
+    rounded-md flex flex-col justify-center mx-2 my-2">
             <div class="bg-black rounded-md flex justify-center image_container">
                 <img class="rounded-md" [src]="itemCatalogue.Image" alt="gymbro" (mouseover)="itemCatalogue.SecImage"
                     (mouseout)="itemCatalogue.Image">
