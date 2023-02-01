@@ -5,17 +5,30 @@
             <span>Poutchi Gang</span>
         </div>
 
+
         <div class="button__container">
             <ul>
                 <li><a routerLink="">Accueil</a></li>
                 <li><a routerLink="/boutique">Boutique</a></li>
                 <li><a routerLink="/coaching">Coaching</a></li>
                 <!-- <li>Motivation</li> -->
-                <li>Contact</li>
+                <!-- <li>Contact</li>
                 <li>
                     <button>Se connecter</button>
+                </li> -->
+                <li>
+                    <fa-icon [icon]="faCart" (click)="visibleSidebar2"></fa-icon>
+                    <!-- <i class="pi-shopping-cart"></i> -->
+
+
                 </li>
             </ul>
         </div>
+
+
     </div>
 </div>
+
+<!-- <p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="10000">
+    <h3>Right Sidebar</h3>
+</p-sidebar> -->

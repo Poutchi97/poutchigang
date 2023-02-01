@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "poutchigang"
+  "defaultProject": "poutchigang",
+  "cli": {
+    "analytics": false
+  }
 }

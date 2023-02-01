@@ -10,6 +10,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { CoachingComponent } from './coaching/coaching.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CoachingComponent } from './coaching/coaching.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SidebarModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
