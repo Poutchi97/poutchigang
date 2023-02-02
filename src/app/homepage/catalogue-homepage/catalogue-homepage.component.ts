@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICatalogue } from 'src/app/interfaces/icatalogue';
+import { ProduitsService } from 'src/app/shared/services/produits.service';
 
 @Component({
   selector: 'app-catalogue-homepage',
@@ -9,7 +11,12 @@ import { ICatalogue } from 'src/app/interfaces/icatalogue';
 export class CatalogueHomepageComponent implements OnInit {
   public catalogue!: ICatalogue[];
 
-  constructor() {
+  // public produits!: ICatalogue[];
+
+  constructor(
+    private _produits: ProduitsService,
+    private _router: Router
+  ) {
     this.catalogue = [{
       Id: 1,
       Title: "Comp Poutchi Tees",
@@ -48,6 +55,13 @@ export class CatalogueHomepageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+  }
+
+  public displayDetails(id: number) {
+    let currentProduct = this.catalogue[id];
+    this._router.navigateByUrl('/boutique/produit/' + currentProduct.Id);
+    console.log(currentProduct);
   }
 
 }

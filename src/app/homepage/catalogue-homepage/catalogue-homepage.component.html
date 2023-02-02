@@ -7,8 +7,8 @@
     </div>
 
     <div class="flex py-10 top_vente__container justify-center flex-wrap">
-        <div *ngFor="let itemCatalogue of catalogue" class="w-80
-    rounded-md flex flex-col justify-center mx-2 my-2">
+        <div *ngFor="let itemCatalogue of catalogue;let i = index" (click)="displayDetails(i)" class="w-80
+            rounded-md flex flex-col justify-center mx-2 my-2">
             <div class="bg-black rounded-md flex justify-center image_container">
                 <img class="rounded-md" [src]="itemCatalogue.Image" alt="gymbro" (mouseover)="itemCatalogue.SecImage"
                     (mouseout)="itemCatalogue.Image">

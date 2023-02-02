@@ -15,6 +15,7 @@ import { PresentationCoachingComponent } from './homepage/presentation-coaching/
 import { SidebarModule } from 'primeng/sidebar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonModule } from 'primeng/button';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ButtonModule } from 'primeng/button';
     AppRoutingModule,
     SidebarModule,
     FontAwesomeModule,
-    ButtonModule
+    ButtonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
