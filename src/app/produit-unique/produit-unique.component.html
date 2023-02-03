@@ -13,7 +13,8 @@
                 {{currentProducToDisplay.Description}}
             </p>
             <span class="price font-bold my-1">{{currentProducToDisplay.Price}} €</span>
-            <button class="rounded-md bg-blue-600 text-white transition duration-300 p-2 w-24 hover:bg-blue-700">
+            <button (click)="addItemToStorage()"
+                class="rounded-md bg-blue-600 text-white transition duration-300 p-2 w-24 hover:bg-blue-700">
                 Acheter
             </button>
         </div>

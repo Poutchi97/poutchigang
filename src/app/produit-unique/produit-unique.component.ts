@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ICatalogue } from '../interfaces/icatalogue';
+import { LocalstorageService } from '../shared/services/localstorage.service';
 import { ProduitsService } from '../shared/services/produits.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class ProduitUniqueComponent {
   constructor(
     private _produits: ProduitsService,
     private _router: Router,
-    private _ar: ActivatedRoute
+    private _ar: ActivatedRoute,
+    private _storage: LocalstorageService
   ) {
 
   }
@@ -32,6 +34,9 @@ export class ProduitUniqueComponent {
 
   public getOneProduct() {
     this.currentProducToDisplay = this.catalogue[this.idProductToDisplay - 1];
-    console.log(this.currentProducToDisplay);
+  }
+
+  public addItemToStorage() {
+    this._storage.addProduit(this.currentProducToDisplay)
   }
 }

@@ -16,6 +16,9 @@ import { SidebarModule } from 'primeng/sidebar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './cart/cart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     BoutiqueComponent,
     CoachingComponent,
     ProduitUniqueComponent,
-    PresentationCoachingComponent
+    PresentationCoachingComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     ButtonModule,
     HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

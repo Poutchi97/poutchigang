@@ -25,7 +25,6 @@ export class CatalogueHomepageComponent implements OnInit {
   public displayDetails(id: number) {
     let currentProduct = this.catalogue[id];
     this._router.navigateByUrl('/boutique/produit/' + currentProduct.Id);
-    console.log(currentProduct);
   }
 
 }
