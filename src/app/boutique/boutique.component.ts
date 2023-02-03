@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICatalogue } from '../interfaces/icatalogue';
+import { ProduitsService } from '../shared/services/produits.service';
 
 @Component({
   selector: 'app-boutique',
@@ -8,79 +10,18 @@ import { ICatalogue } from '../interfaces/icatalogue';
 })
 export class BoutiqueComponent {
 
-  public catalogue!: ICatalogue[];
+  public catalogue: ICatalogue[] = this._produits.catalogue;
 
-  constructor() {
-    this.catalogue = [{
-      Id: 1,
-      Title: "Comp Poutchi Tees",
-      Categorie: "Gym Bro",
-      Price: 29.99,
-      Image: "../../../assets/images/gymbro.jpg",
-      SecImage: "../../../assets/images/gymbro.png"
-    },
-    {
-      Id: 2,
-      Title: "Comp Poutchi Tees",
-      Categorie: "Gym Bro",
-      Price: 29.99,
-      Image: "../../../assets/images/gymbro.png",
-      SecImage: "../../../assets/images/gymbro.png"
+  constructor(
+    private _produits: ProduitsService,
+    private _router: Router
+  ) {
 
-    },
-    {
-      Id: 3,
-      Title: "Poutchi Bonnet",
-      Categorie: "Bonnet",
-      Price: 19.99,
-      Image: "../../../assets/images/poutchibonnet.jpg",
-      SecImage: "../../../assets/images/gymbro.png"
+  }
 
-    },
-    {
-      Id: 4,
-      Title: "Poutchi Nrv",
-      Categorie: "Hoodies",
-      Price: 39.99,
-      Image: "../../../assets/images/nrv.png",
-      SecImage: "../../../assets/images/gymbro.png"
-
-    },
-    {
-      Id: 5,
-      Title: "Poutchi Nrv",
-      Categorie: "Hoodies",
-      Price: 39.99,
-      Image: "../../../assets/images/nrv.png",
-      SecImage: "../../../assets/images/gymbro.png"
-
-    },
-    {
-      Id: 6,
-      Title: "Poutchi Nrv",
-      Categorie: "Hoodies",
-      Price: 39.99,
-      Image: "../../../assets/images/nrv.png",
-      SecImage: "../../../assets/images/gymbro.png"
-
-    },
-    {
-      Id: 7,
-      Title: "Poutchi Nrv",
-      Categorie: "Hoodies",
-      Price: 39.99,
-      Image: "../../../assets/images/nrv.png",
-      SecImage: "../../../assets/images/gymbro.png"
-
-    },
-    {
-      Id: 8,
-      Title: "Poutchi Nrv",
-      Categorie: "Hoodies",
-      Price: 39.99,
-      Image: "../../../assets/images/nrv.png",
-      SecImage: "../../../assets/images/gymbro.png"
-
-    }]
+  public displayDetails(id: number) {
+    let currentProduct = this.catalogue[id];
+    this._router.navigateByUrl('/boutique/produit/' + currentProduct.Id);
+    console.log(currentProduct);
   }
 }

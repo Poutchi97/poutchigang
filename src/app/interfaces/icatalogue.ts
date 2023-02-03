@@ -5,4 +5,5 @@ export interface ICatalogue {
     Price: number
     Image: string
     SecImage: string
+    Description: string
 }

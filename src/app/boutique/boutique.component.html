@@ -13,10 +13,10 @@
 
         <div class="max-w-[1350px]">
             <div class="flex justify-center py-10 top_vente__container flex-wrap">
-                <div *ngFor="let itemCatalogue of catalogue" class="w-80
+                <div *ngFor="let itemCatalogue of catalogue; let i = index" (click)="displayDetails(i)" class="w-80 cursor-pointer
             rounded-md flex flex-col justify-center mx-2 pb-10">
                     <div
-                        class="bg-black rounded-md hover:rounded-b-none flex justify-center image_container hover:scale-105 transition-all ease-in-out">
+                        class="bg-black rounded-md flex justify-center image_container hover:scale-105 transition-all ease-in-out">
                         <img class="rounded-md" [src]="itemCatalogue.Image" alt="gymbro"
                             (mouseover)="itemCatalogue.SecImage" (mouseout)="itemCatalogue.Image">
                     </div>

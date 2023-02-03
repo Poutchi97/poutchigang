@@ -7,18 +7,20 @@
     </div>
 
     <div class="flex py-10 top_vente__container justify-center flex-wrap">
-        <div *ngFor="let itemCatalogue of catalogue;let i = index" (click)="displayDetails(i)" class="w-80
-            rounded-md flex flex-col justify-center mx-2 my-2">
-            <div class="bg-black rounded-md flex justify-center image_container">
-                <img class="rounded-md" [src]="itemCatalogue.Image" alt="gymbro" (mouseover)="itemCatalogue.SecImage"
-                    (mouseout)="itemCatalogue.Image">
+        <ng-container *ngFor="let itemCatalogue of catalogue;let i = index">
+            <div *ngIf="i<4" (click)="displayDetails(i)" class="w-80
+            rounded-md flex flex-col justify-center mx-2 my-2 cursor-pointer">
+                <div class="bg-black rounded-md flex justify-center image_container">
+                    <img class="rounded-md" [src]="itemCatalogue.Image" alt="gymbro"
+                        (mouseover)="itemCatalogue.SecImage" (mouseout)="itemCatalogue.Image">
+                </div>
+                <div class="text__description text-center pt-3">
+                    <span class="text-gray-400">{{itemCatalogue.Categorie}}</span>
+                    <h3 class="font-bold uppercase my-1">{{itemCatalogue.Title}}</h3>
+                    <span class="price font-bold my-1">{{itemCatalogue.Price}} €</span>
+                </div>
             </div>
-            <div class="text__description text-center pt-3">
-                <span class="text-gray-400">{{itemCatalogue.Categorie}}</span>
-                <h3 class="font-bold uppercase my-1">{{itemCatalogue.Title}}</h3>
-                <span class="price font-bold my-1">{{itemCatalogue.Price}} €</span>
-            </div>
-        </div>
+        </ng-container>
     </div>
 
     <div class="w-full flex justify-center pb-28 btn__container">

@@ -1,13 +1,23 @@
-<div class="flex py-10 top_vente__container justify-center flex-wrap">
-    <div class="w-80
-        rounded-md flex flex-col justify-center mx-2 my-2">
-        <div class="bg-black rounded-md flex justify-center image_container">
-            <img class="rounded-md" [src]="currentProducToDisplay.Image" alt="gymbro">
+<div class="flex py-10 top_vente__container justify-center flex-wrap h-screen">
+    <div class="flex flex-wrap justify-evenly w-full items-center">
+
+        <div class="w-[500px] rounded-md flex flex-col justify-center mx-2 my-2">
+            <div class=" rounded-md flex justify-center image_container">
+                <img class="rounded-md" [src]="currentProducToDisplay.Image" width="1000" alt="gymbro">
+            </div>
         </div>
-        <div class="text__description text-center pt-3">
-            <span class="text-gray-400">{{currentProducToDisplay.Categorie}}</span>
-            <h3 class="font-bold uppercase my-1">{{currentProducToDisplay.Title}}</h3>
+
+        <div class="text__description flex flex-col justify-between pt-3 max-w-4xl h-80">
+            <h1 class="text-4xl font-bold uppercase my-1">{{currentProducToDisplay.Title}}</h1>
+            <p class="text-left">
+                {{currentProducToDisplay.Description}}
+            </p>
             <span class="price font-bold my-1">{{currentProducToDisplay.Price}} €</span>
+            <button class="rounded-md bg-blue-600 text-white transition duration-300 p-2 w-24 hover:bg-blue-700">
+                Acheter
+            </button>
         </div>
+
+
     </div>
 </div>
