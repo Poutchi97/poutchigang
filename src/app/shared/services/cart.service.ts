@@ -6,21 +6,34 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   private display = new BehaviorSubject<any>(false);
+  private produitsStorage = new BehaviorSubject<any>({});
+  private sousTotal = new BehaviorSubject<number>(0);
   public produitsStorageKey: any;
-  public produitsStorage: any
+
+  _sousTotal = this.sousTotal.asObservable();
+  _produitsStorage = this.produitsStorage.asObservable();
   isDisplayable = this.display.asObservable();
 
-
-  constructor() {
-    this.produitsStorageKey = Object.keys(localStorage);
-
-  }
+  constructor() { }
 
   setDisplayable(status: boolean) {
     this.display.next(status);
   }
 
-  getItem() {
-    this.produitsStorage = this.produitsStorageKey.map((key: any) => localStorage.getItem(key));
+  setProduits(produitsStorage: any) {
+    this.produitsStorage.next(produitsStorage);
+  }
+
+  CalculeDuSousTotal(): void {
+    let sousTot: number = 0;
+    this._produitsStorage.subscribe({
+      next: (prod) => {
+        for (let index = 0; index < prod.length; index++) {
+          sousTot += prod[index].Price
+          this.sousTotal.next(sousTot);
+        }
+
+      }
+    })
   }
 }

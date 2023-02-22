@@ -32,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CoachingComponent,
     ProduitUniqueComponent,
     PresentationCoachingComponent,
-    CartComponent
+    CartComponent,
+
   ],
   imports: [
     BrowserModule,

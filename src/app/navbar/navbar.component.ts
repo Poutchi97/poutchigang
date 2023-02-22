@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from '../shared/services/cart.service';
+import { LocalstorageService } from '../shared/services/localstorage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,8 +10,10 @@ import { CartService } from '../shared/services/cart.service';
 })
 export class NavbarComponent implements OnInit {
   faCart = faCartShopping
+
   constructor(
-    private _cart: CartService
+    private _cart: CartService,
+    private _localStorage: LocalstorageService
   ) { }
 
   ngOnInit(): void {
@@ -18,5 +21,7 @@ export class NavbarComponent implements OnInit {
 
   setStatus() {
     this._cart.setDisplayable(true);
+    this._cart.setProduits(this._localStorage.getProduits())
+
   }
 }
