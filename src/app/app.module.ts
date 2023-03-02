@@ -18,6 +18,8 @@ import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProgrammeComponent } from './coaching/programme/programme.component';
+import { DeroulementCoachingComponent } from './coaching/deroulement-coaching/deroulement-coaching.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProduitUniqueComponent,
     PresentationCoachingComponent,
     CartComponent,
+    ProgrammeComponent,
+    DeroulementCoachingComponent,
 
   ],
   imports: [

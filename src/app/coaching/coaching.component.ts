@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faDumbbell, faEnvelope, faPersonRunning, faUsersLine } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-coaching',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class CoachingComponent {
 
+  faEnvelope = faEnvelope
 }

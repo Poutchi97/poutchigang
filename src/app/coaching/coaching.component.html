@@ -1,111 +1,49 @@
-<div>
+<div class="bg-black ">
 
 
 
-
+    <!-- 
     <div class="w-full bg-red-600 absolute top-20 flex justify-center items-center h-24 z-50">
         <p class="uppercase">Bientôt disponible</p>
-    </div>
+    </div> -->
 
+    <div class="image__container flex items-center justify-around flex-wrap pb-10 min-h-[800px]">
+        <!-- <img src="../../assets/images/homewallpapercross.jpg" alt="homewallpaper" class=""> -->
+        <div class="h-[30rem] flex flex-col justify-between home_text_presentation py-5 max-lg:h-[22rem]">
+            <h1
+                class="text-6xl w-[900px] capitalize font-bold pl-4 text-white max-lg:text-5xl max-lg:w-[700px] max-md:w-[500px] max-md:text-4xl max-sm:w-[300px] max-sm:text-2xl">
+                Je crée des programmes sur mesure afin que vous atteigniez vos objectifs
+            </h1>
+            <h2 class="text-gray-200 pl-4 text-l max-w-md">
 
+                Que vous recherchiez un programme de remise en forme, de préparation physique pour une compétition, ou
+                simplement que vous souhaitiez rester en forme, <span
+                    class="uppercase text-blue-600 font-bold">Poutchi</span> est
+                là pour vous. <span class="font-bold text-blue-600">Réservez votre coaching dès maintenant !</span>
+            </h2>
 
+            <div class="pl-4">
+                <button routerLink="/coaching"
+                    class="rounded-lg mr-3 font-bold bg-blue-700 text-white transition duration-300 p-2 w-44 h-14 hover:bg-blue-800 ">
+                    Réservation
+                    <fa-icon [icon]="faEnvelope" class="pl-1.5"></fa-icon>
+                </button>
+                <button class="rounded-lg text-white font-bold bg-gray-800 transition duration-300 p-2 w-44 h-14">
+                    <span class="text-green-600 pr-1.5">●</span>Disponble
+                </button>
 
-    <div class="max-w-[1350px] flex, mx-auto relative">
-        <div class="h-[75px] flex items-center pt-10 mx-2">
-            <h1 class="uppercase font-bold text-2xl">Abonnement coaching</h1>
-        </div>
-
-
-
-        <div>
-            <div class="flex justify-center text-white items-center h-[80vh]">
-                <div class="card__container h-[30rem] w-72 mx-2  rounded-md flex flex-col justify-around">
-
-                    <div>
-                        <div class="font-bold text-xl flex justify-center h-20 items-center  max-w-[200px] mx-auto">
-                            Niveau 1
-                        </div>
-
-                        <div class="flex flex-col max-w-[200px] mx-auto">
-                            <span>- Suivi sportif</span>
-                            <span>- Suivi nutrition</span>
-                            <span>- Durée : <span class="font-bold text-cyan-600">3 mois</span></span>
-                        </div>
-
-                    </div>
-
-                    <div class="flex flex-col">
-                        <div class="max-w-[200px] mx-auto py-6">
-                            89.99 €
-                        </div>
-
-                        <div class="flex justify-center">
-                            <button class="btn-boutique text-white p-2 rounded-md w-48">S'abonner</button>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="card__container h-[34rem] w-72 mx-2  rounded-md flex flex-col justify-around">
-
-                    <div>
-                        <div class="font-bold text-xl flex justify-center h-20 items-center  max-w-[200px] mx-auto">
-                            Niveau 2
-                        </div>
-
-                        <div class="flex flex-col max-w-[200px] mx-auto">
-                            <span>- Suivi sportif</span>
-                            <span>- Suivi nutrition</span>
-                            <span>- Mobilité</span>
-                            <span>- Durée : <span class="font-bold text-cyan-600">6 mois</span></span>
-                        </div>
-
-                    </div>
-
-                    <!-- <div>
-                        <div>
-                            Offre la plus avantageuse
-                        </div>
-                    </div> -->
-
-                    <div class="flex flex-col">
-                        <div class="max-w-[200px] mx-auto py-6">
-                            79.99 €
-                        </div>
-
-                        <div class="flex justify-center">
-                            <button class="btn-boutique text-white p-2 rounded-md w-48">S'abonner</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card__container h-[30rem] w-72 mx-2 rounded-md flex flex-col justify-around">
-
-                    <div>
-                        <div class="font-bold text-xl flex justify-center h-20 items-center  max-w-[200px] mx-auto">
-                            Niveau 3
-                        </div>
-
-                        <div class="flex flex-col max-w-[200px] mx-auto">
-                            <span>- Suivi sportif</span>
-                            <span>- Suivi nutrition</span>
-                            <span>- Mobilité</span>
-                            <span>- Méthodes de préparation</span>
-                            <span>- Durée : <span class="font-bold text-cyan-600">1 an</span></span>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <div class=" max-w-[200px] mx-auto py-6">
-                            69.99 €
-                        </div>
-
-                        <div class="flex justify-center">
-                            <button class="btn-boutique text-white p-2 rounded-md w-48">S'abonner</button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
+        <div>
+            <!-- <object data="../../../assets/svg/personnal_trainer.svg" class="max-md:w-96 max-sm:w-80" width="500"
+                height="500"></object> -->
+            <img src="../../assets/images/image0.png" width="300" alt="">
+        </div>
     </div>
+
+    <app-programme>
+    </app-programme>
+
+    <app-deroulement-coaching></app-deroulement-coaching>
 </div>
