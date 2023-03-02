@@ -14,6 +14,7 @@ export class CartComponent {
   public display!: boolean;
   public sousTotal: number = 0;
   public produitsStorage: any
+  public produitsPrix: number[] = [];
 
   constructor(
     private _cart: CartService,
@@ -28,13 +29,14 @@ export class CartComponent {
       }
     });
     this.getItem();
-    this.CalculeDuSousTotal();
+
   }
 
   getItem() {
     this._cart._produitsStorage.subscribe({
       next: (produits: any) => {
         this.produitsStorage = produits;
+        this.calculeDuSousTotal();
       }
     });
   }
@@ -42,20 +44,16 @@ export class CartComponent {
   deleteItem(id: string) {
     this._storage.deleteProduits(id);
     this._cart.setProduits(this._storage.getProduits())
-    this.CalculeDuSousTotal();
 
     this.getItem();
   }
 
-  CalculeDuSousTotal() {
-    this._cart._sousTotal.subscribe({
-      next: (st) => {
-
-        console.log(st);
-
-        this.sousTotal = st;
-      }
-    });
+  calculeDuSousTotal() {
+    this.sousTotal = 0;
+    for (let index = 0; index < this.produitsStorage.length; index++) {
+      this.sousTotal += this.produitsStorage[index].Price;
+    }
+    console.log(this.sousTotal)
   }
 
 }
