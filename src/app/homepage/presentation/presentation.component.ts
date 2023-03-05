@@ -11,5 +11,4 @@ export class PresentationComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

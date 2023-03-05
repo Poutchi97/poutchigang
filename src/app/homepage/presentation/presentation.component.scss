@@ -22,6 +22,10 @@
     
 }
 
+#shape-1, #shape-2, #shape-3{
+    filter: blur(150px);
+}
+
 .home_text_presentation{
     /* From https://css.glass */
     // background: rgba(255, 255, 255, 0.2);

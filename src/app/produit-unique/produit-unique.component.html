@@ -1,4 +1,4 @@
-<div class="flex py-10 top_vente__container justify-center min-h-[1000px] flex-wrap">
+<div class="flex py-10 top_vente__container justify-center min-h-[1200px] flex-wrap">
     <div class="flex flex-wrap justify-evenly w-full items-center">
 
         <div class="w-[500px] rounded-md flex flex-col justify-center mx-2 my-2">
@@ -7,17 +7,17 @@
             </div>
         </div>
 
-        <div class="text__description flex flex-col justify-evenly pt-3 max-w-4xl min-h-[500px]">
-            <div class="">
+        <div class="text__description flex flex-col mx-10 justify-evenly content-between pt-3 max-w-4xl min-h-[500px]">
+            <div class="max-sm:min-h-[100px]">
                 <h1 class="text-4xl font-bold uppercase my-1">{{currentProducToDisplay.Title}}</h1>
             </div>
-            <div class="">
+            <div class="max-sm:min-h-[50%]">
                 <p class="text-left">
                     {{currentProducToDisplay.Description}}
                 </p>
             </div>
 
-            <div class="flex items-center" *ngIf="displayTaille">
+            <div class="flex max-sm:min-h-[200px] items-center" *ngIf="displayTaille">
                 <button *ngFor="let taille of currentProducToDisplay.Taille"
                     [ngClass]="{'taille-selected': tailleSelected == taille}" (click)="tailleSelectedStyle(taille)"
                     class="mr-3 w-16 h-10 rounded-lg border text-black border-blue-600 hover:text-white hover:bg-blue-600">{{taille}}</button>
@@ -27,10 +27,10 @@
                 </span>
             </div>
 
-            <div>
-                <span class="price font-bold my-1">{{currentProducToDisplay.Price}} €</span>
+            <div class="max-sm:min-h-[50px] flex items-center">
+                <span class=" price text-lg font-bold my-1">{{currentProducToDisplay.Price}} €</span>
             </div>
-            <div>
+            <div class="max-sm:min-h-[50px]">
                 <button (click)="addItemToStorage()"
                     class="rounded-md bg-blue-600 text-white transition duration-300 p-2 w-24 hover:bg-blue-700">
                     Acheter
