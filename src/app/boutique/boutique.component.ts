@@ -11,7 +11,6 @@ import { ProduitsService } from '../shared/services/produits.service';
 export class BoutiqueComponent {
 
   public catalogue: ICatalogue[] = this._produits.catalogue;
-
   constructor(
     private _produits: ProduitsService,
     private _router: Router

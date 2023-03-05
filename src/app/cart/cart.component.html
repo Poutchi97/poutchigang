@@ -9,11 +9,12 @@
                             <img class="rounded-sm" src="{{item.Image}}" alt="{{item.Title}}" width="75">
 
                         </div>
-                        <div class="my-5 ">
+                        <div class="my-5 flex flex-col">
                             <h2 class="py-1 text-blue-600">{{item.Title}}</h2>
-                            <p class="py-1">
-                                {{item.Price}}€
-                            </p>
+                            <span class="py-1" *ngIf="item.Taille[0].length == 1">Taille : {{item.Taille[0]}}</span>
+                            <span class="py-1">
+                                Prix : {{item.Price}}€
+                            </span>
                         </div>
                     </div>
                 </a>
@@ -29,6 +30,7 @@
             </div>
         </ng-container>
     </div>
+
     <div>
         <div>
             <ul>
@@ -36,18 +38,18 @@
                     <h3 class="px-5">Sous-total</h3>
                     <span class="pr-10">{{sousTotal}} €</span>
                 </li>
-                <li>
+                <li class="flex justify-between">
                     <h3 class="px-5">
                         Frais de port
                     </h3>
-                    <span></span>
+                    <span class="pr-10">{{fraisDePort}} €</span>
                 </li>
-                <li>
+                <li class="flex justify-between">
                     <h3 class="px-5">
                         Total
                     </h3>
-                    <span>
-
+                    <span class="pr-10">
+                        {{total}} €
                     </span>
                 </li>
             </ul>

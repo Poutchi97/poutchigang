@@ -13,8 +13,11 @@ export class CartComponent {
   faTrash = faTrash;
   public display!: boolean;
   public sousTotal: number = 0;
-  public produitsStorage: any
+  public produitsStorage: any;
   public produitsPrix: number[] = [];
+  public total: number = 0;
+  public fraisDePort = 0;
+  public isTaille = true;
 
   constructor(
     private _cart: CartService,
@@ -34,9 +37,10 @@ export class CartComponent {
 
   getItem() {
     this._cart._produitsStorage.subscribe({
-      next: (produits: any) => {
+      next: (produits: ICatalogue) => {
         this.produitsStorage = produits;
         this.calculeDuSousTotal();
+        this.calculeDuTotal();
       }
     });
   }
@@ -53,7 +57,24 @@ export class CartComponent {
     for (let index = 0; index < this.produitsStorage.length; index++) {
       this.sousTotal += this.produitsStorage[index].Price;
     }
-    console.log(this.sousTotal)
+  }
+
+  calculeDuTotal() {
+    this.total = 0;
+    this.fraisDePort = 0;
+
+    if (this.sousTotal >= 30) {
+      this.fraisDePort = 5.99
+    }
+    if (this.sousTotal >= 40) {
+      this.fraisDePort = 6.99
+    }
+    if (this.sousTotal < 30 && this.sousTotal > 0) {
+      this.fraisDePort = 4.99
+    }
+
+    this.total = Math.round((this.sousTotal + this.fraisDePort) * 100) / 100;
+
   }
 
 }

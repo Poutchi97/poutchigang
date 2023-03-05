@@ -1,9 +1,13 @@
+import { TypeProduit } from "../shared/services/produits.service";
+
 export interface ICatalogue {
     Id: number,
     Title: string,
     Categorie: string,
-    Price: number
-    Image: string
-    SecImage: string
-    Description: string
+    Price: number,
+    Taille: string[],
+    Type: TypeProduit
+    Image: string,
+    SecImage: string,
+    Description: string,
 }
