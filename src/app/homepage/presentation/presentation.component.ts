@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ISlider } from 'src/app/interfaces/islider';
+import { SliderService } from 'src/app/shared/services/slider.service';
 
 @Component({
   selector: 'app-presentation',
@@ -7,8 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PresentationComponent implements OnInit {
 
-  constructor() { }
+  public sliderImageSrc: ISlider[] = this._sliderImage.sliderImages;
+
+  responsiveOptions: any[] = [
+    {
+      breakpoint: '1024px',
+      numVisible: 5
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 3
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1
+    }
+  ];
+  constructor(
+    private _sliderImage: SliderService
+  ) { }
 
   ngOnInit(): void {
+
+    console.log(this.sliderImageSrc)
   }
 }
