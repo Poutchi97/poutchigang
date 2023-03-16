@@ -11,7 +11,10 @@
                         </div>
                         <div class="my-5 flex flex-col">
                             <h2 class="py-1 text-blue-600">{{item.Title}}</h2>
-                            <span class="py-1" *ngIf="item.Taille[0].length == 1">Taille : {{item.Taille[0]}}</span>
+                            <ng-container *ngFor="let taille of item.Taille">
+                                <span class="py-1" *ngIf="taille.length == 1">Taille : {{taille}}</span>
+                            </ng-container>
+
                             <span class="py-1">
                                 Prix : {{item.Price}}€
                             </span>
