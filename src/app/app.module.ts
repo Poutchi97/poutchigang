@@ -20,6 +20,7 @@ import { CartComponent } from './cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProgrammeComponent } from './coaching/programme/programme.component';
 import { DeroulementCoachingComponent } from './coaching/deroulement-coaching/deroulement-coaching.component';
+import { GalleriaModule } from 'primeng/galleria';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { DeroulementCoachingComponent } from './coaching/deroulement-coaching/de
     FontAwesomeModule,
     ButtonModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    GalleriaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

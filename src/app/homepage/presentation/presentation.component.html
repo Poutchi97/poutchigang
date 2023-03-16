@@ -1,44 +1,58 @@
 <div class="relative bg-[#000000]">
-    <div class="image__container flex items-center justify-around flex-wrap">
-        <!-- <img src="../../assets/images/homewallpapercross.jpg" alt="homewallpaper" class=""> -->
-        <div class="z-30 h-[30rem] flex flex-col justify-between home_text_presentation py-5 max-lg:h-[22rem]">
-            <h1
-                class="text-6xl w-[900px] capitalize font-bold pl-4 text-white max-lg:text-5xl max-lg:w-[700px] max-md:w-[500px] max-md:text-4xl max-sm:w-[300px] max-sm:text-2xl">
-                <span class="uppercase poutchi-gang">Poutchi</span><br>Fournisseur officiel de coaching
-                et de gymbros
-                depuis 2023
-            </h1>
-            <h2 class="text-gray-200 pl-4 text-l max-w-md">
-                Présent dans la région Liégeoise, <br>Poutchi fournis les gymbros en
-                coaching sportif,
-                motivation et équipements.</h2>
+    <div class="flex flex-wrap items-center justify-evenly">
+        <div class="image__container flex flex-wrap items-center">
+            <!-- <img src="../../assets/images/homewallpapercross.jpg" alt="homewallpaper" class=""> -->
+            <div
+                class="z-30 h-[30rem] flex flex-col items-center text-center justify-evenly home_text_presentation py-3 ">
+                <h1
+                    class="text-5xl w-[900px] font-bold text-white max-lg:text-5xl max-lg:w-[700px] max-md:w-[500px] max-md:text-4xl max-sm:w-[300px] max-sm:text-2xl">
+                    <span class="text-6xl max-md:text-5xl uppercase poutchi-gang">Poutchi</span><br>Fournisseur
+                    officiel
+                    de coaching
+                    et de gymbros
+                    depuis 2023
+                </h1>
+                <h2 class="text-gray-200 pl-4 text-l max-w-md">
+                    Présent dans la région Liégeoise, <br>Poutchi fournis les gymbros en
+                    coaching sportif,
+                    motivation et équipements.</h2>
 
-            <div class="pl-4">
-                <button routerLink="/coaching"
-                    class="rounded-lg mr-3 font-bold bg-blue-600 text-white transition duration-300 p-2 w-44 h-14 max-sm:w-32 max-sm:h-12 hover:bg-blue-700 ">
-                    Coaching
-                </button>
-                <!-- <button routerLink="/boutique"
-                    class="rounded-lg text-blue-600 font-bold bg-white transition duration-300 p-2 w-44 h-14 hover:bg-blue-600 hover:text-white hover:border-none">
-                    Boutique
-                </button> -->
+                <div class="pl-4">
+                    <button routerLink="/coaching"
+                        class="rounded-lg mr-3 font-bold bg-blue-600 text-white transition duration-300 p-2 w-44 h-14 max-sm:w-32 max-sm:h-12 hover:bg-blue-700 ">
+                        Coaching
+                    </button>
+                    <!-- <button routerLink="/boutique"
+                        class="rounded-lg text-blue-600 font-bold bg-white transition duration-300 p-2 w-44 h-14 hover:bg-blue-600 hover:text-white hover:border-none">
+                        Boutique
+                    </button> -->
+
+                </div>
+            </div>
+
+            <div class="overflow-hidden">
+                <div class="min-w-[600px] overflow-hidden rounded-full opacity-70 absolute h-[600px] bg-blue-500 right-[700px] top-60 z-0"
+                    id="shape-1">
+                </div>
+                <div class="min-w-[350px] overflow-hidden rounded-full opacity-70 absolute h-[350px] bg-blue-500 right-[200px] bottom-20 z-0"
+                    id="shape-2">
+                </div>
+                <div class="min-w-[400px] max-lg:hidden overflow-hidden rounded-full opacity-70 absolute h-[400px] bg-blue-500 left-[500px] top-24 z-0"
+                    id="shape-3">
+                </div>
 
             </div>
         </div>
 
-        <div class="overflow-hidden">
-            <!-- <object class="z-30" data="../../../assets/svg/personnal_trainer.svg" class="max-md:w-96 max-sm:w-80"
-                width="500" height="500"></object> -->
-            <!-- <img src="../../../assets/images/poutchi-h.jpg" alt=""> -->
-            <div class="min-w-[600px] overflow-hidden rounded-full opacity-70 absolute h-[600px] bg-blue-500 right-[700px] top-60 z-0"
-                id="shape-1">
-            </div>
-            <div class="min-w-[350px] overflow-hidden rounded-full opacity-70 absolute h-[350px] bg-blue-500 right-[200px] bottom-20 z-0"
-                id="shape-2">
-            </div>
-            <div class="min-w-[400px] max-lg:hidden overflow-hidden rounded-full opacity-70 absolute h-[400px] bg-blue-500 left-[500px] top-24 z-0"
-                id="shape-3">
-            </div>
+        <div class="z-30 min-h-[700px] max-md:min-h-[550px] max-sm:min-h-[450px] flex items-center">
+            <p-galleria [value]="sliderImageSrc" [changeItemOnIndicatorHover]="true" [showThumbnails]="false"
+                [showIndicators]="true" [responsiveOptions]="responsiveOptions">
+
+                <ng-template pTemplate="item" let-item>
+                    <img class="rounded-lg block border-solid border-2 bg-cover max-md:w-96 max-sm:w-80" width="500"
+                        [src]="item.PreviewImageSrc" [alt]="item.Alt">
+                </ng-template>
+            </p-galleria>
 
         </div>
     </div>
