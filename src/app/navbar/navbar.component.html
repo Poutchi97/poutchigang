@@ -8,12 +8,14 @@
 
 
         <nav class="button__container">
-            <ul>
-                <li class=""><a routerLink="" class="hover:border-b-2 text-white border-blue-600">Accueil</a></li>
-                <li class=""><a routerLink="/coaching"
+            <ul class="">
+                <li class="max-lg:hidden"><a routerLink=""
+                        class="hover:border-b-2 text-white border-blue-600">Accueil</a></li>
+                <li class="max-lg:hidden"><a routerLink="/coaching"
                         class="text-white hover:border-b-2 transition-all border-blue-600">Coaching</a>
                 </li>
-                <li class=""><a routerLink="/boutique" class="text-white hover:border-b-2 border-blue-600">Boutique</a>
+                <li class="max-lg:hidden"><a routerLink="/boutique"
+                        class="text-white hover:border-b-2 border-blue-600">Boutique</a>
                 </li>
 
                 <!-- <li>Motivation</li> -->
@@ -23,6 +25,23 @@
                 </li> -->
 
             </ul>
+
+            <p-sidebar [style]="{}" [fullScreen]="true" [(visible)]="display" [baseZIndex]="10000">
+                <div class="flex justify-center items-center w-full h-[80vh]">
+                    <ul class="flex-col h-40 justify-around">
+                        <li (click)="display = false" class=""><a routerLink=""
+                                class="hover:border-b-2 border-blue-600">Accueil</a>
+                        </li>
+                        <li (click)="display = false" class=""><a routerLink="/coaching"
+                                class=" hover:border-b-2 transition-all border-blue-600">Coaching</a>
+                        </li>
+                        <li (click)="display = false" class=""><a routerLink="/boutique"
+                                class=" hover:border-b-2 border-blue-600">Boutique</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </p-sidebar>
         </nav>
 
         <div class="button__container">
@@ -30,6 +49,12 @@
                 <li>
                     <fa-icon class="text-white" [icon]="faCart" (click)="setStatus()"></fa-icon>
                     <!-- <i class="pi-shopping-cart"></i> -->
+                </li>
+
+                <li class="hidden max-lg:block">
+                    <button (click)="display = true" class="text-white">
+                        <fa-icon [icon]="faBars"></fa-icon>
+                    </button>
                 </li>
             </ul>
         </div>
