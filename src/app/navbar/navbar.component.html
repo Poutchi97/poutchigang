@@ -43,11 +43,15 @@
         <div class="button__container">
             <ul>
                 <li>
-                    <fa-icon class="text-white" [icon]="faCart" (click)="setStatus()"></fa-icon>
-                    <!-- <i class="pi-shopping-cart"></i> -->
+                    <i class="pi pi-shopping-cart mr-4  text-white" *ngIf="localItemsCount != '0'; else withoutBadge"
+                        pBadge style="font-size: 1.25rem" [value]="localItemsCount" (click)="setStatus()"></i>
+                    <ng-template #withoutBadge>
+                        <i class="pi pi-shopping-cart mr-4  text-white" style="font-size: 1.25rem"
+                            (click)="setStatus()"></i></ng-template>
                 </li>
 
                 <li class="hidden max-lg:block">
+
                     <button (click)="display = true" class="text-white">
                         <fa-icon [icon]="faBars"></fa-icon>
                     </button>

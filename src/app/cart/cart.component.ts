@@ -47,8 +47,8 @@ export class CartComponent {
 
   deleteItem(id: string) {
     this._storage.deleteProduits(id);
+    this._storage.getProduitsCount();
     this._cart.setProduits(this._storage.getProduits())
-
     this.getItem();
   }
 

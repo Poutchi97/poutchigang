@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProgrammeComponent } from './coaching/programme/programme.component';
 import { DeroulementCoachingComponent } from './coaching/deroulement-coaching/deroulement-coaching.component';
 import { GalleriaModule } from 'primeng/galleria';
+import { BadgeModule } from 'primeng/badge';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { GalleriaModule } from 'primeng/galleria';
     HttpClientModule,
     BrowserAnimationsModule,
     GalleriaModule,
+    BadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

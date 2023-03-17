@@ -8,6 +8,8 @@ import { BehaviorSubject } from 'rxjs';
 export class LocalstorageService {
 
   public items: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  public itemsCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  public _itemsCount = this.itemsCount.asObservable();
   public _items = this.items.asObservable();
   private storageKeyForProducts = "products";
   constructor() { }
@@ -33,5 +35,14 @@ export class LocalstorageService {
       productsArray.splice(index, 1);
     }
     localStorage.setItem(this.storageKeyForProducts, JSON.stringify(productsArray));
+  }
+
+  getProduitsCount() {
+    const dataProduitsStorage = localStorage.getItem(this.storageKeyForProducts);
+    if (dataProduitsStorage) {
+      console.log(JSON.parse(dataProduitsStorage).length);
+
+      this.itemsCount.next(JSON.parse(dataProduitsStorage).length);
+    }
   }
 }

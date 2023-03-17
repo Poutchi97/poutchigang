@@ -12,17 +12,28 @@ export class NavbarComponent implements OnInit {
   faCart = faCartShopping
   faBars = faBars;
   display!: boolean;
+  localItemsCount: string = '';
   constructor(
     private _cart: CartService,
     private _localStorage: LocalstorageService,
   ) { }
 
   ngOnInit(): void {
+    this.getLocalstorageCountItem();
   }
 
   setStatus() {
     this._cart.setDisplayable(true);
-    this._cart.setProduits(this._localStorage.getProduits())
+    this._cart.setProduits(this._localStorage.getProduits());
+    this.getLocalstorageCountItem();
+  }
 
+  getLocalstorageCountItem() {
+    this._localStorage.getProduitsCount();
+    this._localStorage._itemsCount.subscribe({
+      next: (count: number) => {
+        this.localItemsCount = count.toString();
+      }
+    })
   }
 }

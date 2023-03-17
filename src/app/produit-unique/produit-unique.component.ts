@@ -71,6 +71,7 @@ export class ProduitUniqueComponent {
   public setStatus() {
     this._cart.setDisplayable(true);
     this._cart.setProduits(this._storage.getProduits())
+    this._storage.getProduitsCount();
 
   }
 
