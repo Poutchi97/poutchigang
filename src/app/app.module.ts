@@ -22,7 +22,6 @@ import { ProgrammeComponent } from './coaching/programme/programme.component';
 import { DeroulementCoachingComponent } from './coaching/deroulement-coaching/deroulement-coaching.component';
 import { GalleriaModule } from 'primeng/galleria';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +47,7 @@ import { GalleriaModule } from 'primeng/galleria';
     ButtonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    GalleriaModule
+    GalleriaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

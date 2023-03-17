@@ -1,4 +1,4 @@
-<div class="bg-gray-200 text-black max-lg:pt-12">
+<div class="bg-gray-100 catalogue_homepage text-black max-lg:pt-12">
     <div class="px-20 max-sm:px-6 catalogue__container max-w-[1874px] flex, mx-auto relative">
         <div class="flex justify-between mx-2 w-100 pb-8 flex-wrap align-middle flex-col max-sm:h-[150px] lg:pt-12">
             <h2 class="font-bold text-2xl capitalize">Devenez le parfait Gymbro</h2>
@@ -11,8 +11,8 @@
             <ng-container *ngFor="let itemCatalogue of catalogue;let i = index">
                 <div *ngIf="i<4" class="w-80 max-sm:mb-10
                 rounded-md flex flex-col justify-center mx-2 my-2 cursor-pointer">
-                    <div class="bg-black rounded-md flex justify-center image_container">
-                        <img (click)="displayDetails(i)" class="rounded-md hover:scale-[1.02] transition-all"
+                    <div class="rounded-lg flex justify-center image_container">
+                        <img (click)="displayDetails(i)" class="rounded-lg hover:scale-[1.02] transition-all"
                             [src]="itemCatalogue.Image" alt="gymbro" (mouseover)="itemCatalogue.SecImage"
                             (mouseout)="itemCatalogue.Image">
                     </div>
