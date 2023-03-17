@@ -21,8 +21,8 @@
                 </li>
             </ul>
 
-            <p-sidebar [style]="{'background-image': 'url(../../assets/svg/noiseNavbar.svg)'}" [fullScreen]="true"
-                [(visible)]="display" [baseZIndex]="10000">
+            <p-sidebar [blockScroll]="true" [style]="{'background-image': 'url(../../assets/svg/noiseNavbar.svg)'}"
+                [fullScreen]="true" [(visible)]="display" [baseZIndex]="10000">
                 <div class="flex justify-center items-center w-full  h-[80vh]">
                     <ul class="flex-col h-40 justify-around">
                         <li (click)="display = false" class=""><a routerLink=""
