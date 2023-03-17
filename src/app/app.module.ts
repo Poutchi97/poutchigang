@@ -23,6 +23,7 @@ import { DeroulementCoachingComponent } from './coaching/deroulement-coaching/de
 import { GalleriaModule } from 'primeng/galleria';
 import { BadgeModule } from 'primeng/badge';
 import { ToastModule } from 'primeng/toast';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ToastModule } from 'primeng/toast';
     BrowserAnimationsModule,
     GalleriaModule,
     BadgeModule,
-    ToastModule
+    ToastModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
