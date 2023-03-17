@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { ICatalogue } from '../interfaces/icatalogue';
 import { CartService } from '../shared/services/cart.service';
 import { LocalstorageService } from '../shared/services/localstorage.service';
@@ -8,7 +9,8 @@ import { ProduitsService } from '../shared/services/produits.service';
 @Component({
   selector: 'app-produit-unique',
   templateUrl: './produit-unique.component.html',
-  styleUrls: ['./produit-unique.component.scss']
+  styleUrls: ['./produit-unique.component.scss'],
+  providers: [MessageService]
 })
 export class ProduitUniqueComponent {
 
@@ -26,7 +28,8 @@ export class ProduitUniqueComponent {
     private _cart: CartService,
     private _router: Router,
     private _ar: ActivatedRoute,
-    private _storage: LocalstorageService
+    private _storage: LocalstorageService,
+    private _messageService: MessageService
 
   ) {
   }
@@ -51,6 +54,8 @@ export class ProduitUniqueComponent {
   public addItemToStorage() {
     if (this.tailleSelected.length <= 0 && this.currentProducToDisplay.Type == 1) {
       this.isTailleSelected = false;
+      this._messageService.add({ severity: 'error', summary: 'Echec', detail: 'Veuillez choisir une taille' });
+
     }
     else {
       this._storage.addProduit({
@@ -64,7 +69,9 @@ export class ProduitUniqueComponent {
         SecImage: this.currentProducToDisplay.SecImage,
         Description: this.currentProducToDisplay.Description
       });
-      this.setStatus();
+      this._messageService.add({ severity: 'success', summary: 'Succès', detail: 'Produit ajouté dans le shop' });
+      this._storage.getProduitsCount();
+
     }
   }
 

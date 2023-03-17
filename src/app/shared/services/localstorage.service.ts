@@ -40,8 +40,6 @@ export class LocalstorageService {
   getProduitsCount() {
     const dataProduitsStorage = localStorage.getItem(this.storageKeyForProducts);
     if (dataProduitsStorage) {
-      console.log(JSON.parse(dataProduitsStorage).length);
-
       this.itemsCount.next(JSON.parse(dataProduitsStorage).length);
     }
   }

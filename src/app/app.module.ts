@@ -22,6 +22,7 @@ import { ProgrammeComponent } from './coaching/programme/programme.component';
 import { DeroulementCoachingComponent } from './coaching/deroulement-coaching/deroulement-coaching.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { BadgeModule } from 'primeng/badge';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { BadgeModule } from 'primeng/badge';
     HttpClientModule,
     BrowserAnimationsModule,
     GalleriaModule,
-    BadgeModule
+    BadgeModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
