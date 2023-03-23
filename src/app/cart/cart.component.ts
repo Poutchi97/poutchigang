@@ -18,14 +18,17 @@ export class CartComponent {
   public total: number = 0;
   public fraisDePort = 0;
   public isTaille = true;
+  public numbersArticle: number[] = [];
+  public numbersArticleSelected: number = 1;
 
   constructor(
     private _cart: CartService,
     private _storage: LocalstorageService,
   ) {
+
   }
   ngOnInit(): void {
-
+    this.setNumbersArticule();
     this._cart.isDisplayable.subscribe({
       next: (status) => {
         this.display = status;
@@ -39,10 +42,18 @@ export class CartComponent {
     this._cart._produitsStorage.subscribe({
       next: (produits: ICatalogue) => {
         this.produitsStorage = produits;
+        console.log(this.produitsStorage);
+
         this.calculeDuSousTotal();
         this.calculeDuTotal();
       }
     });
+  }
+
+  setNumbersArticule() {
+    for (let i = 1; i <= 25; i++) {
+      this.numbersArticle.push(i);
+    }
   }
 
   deleteItem(id: string) {

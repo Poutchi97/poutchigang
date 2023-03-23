@@ -24,6 +24,7 @@ import { GalleriaModule } from 'primeng/galleria';
 import { BadgeModule } from 'primeng/badge';
 import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { DropdownModule } from 'primeng/dropdown';
     GalleriaModule,
     BadgeModule,
     ToastModule,
-    DropdownModule
+    DropdownModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

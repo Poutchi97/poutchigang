@@ -22,6 +22,7 @@ export class ProduitUniqueComponent {
   public displayTaille: boolean = true;
   public quantity!: any;
   public quantitySelected!: any;
+  public numbersArticle: number[] = [];
 
   // public produits!: ICatalogue[];
 
@@ -33,30 +34,23 @@ export class ProduitUniqueComponent {
     private _storage: LocalstorageService,
     private _messageService: MessageService
 
-  ) {
-
-    this.quantity = [
-      { name: '1', code: '1' },
-      { name: '2', code: '2' },
-      { name: '3', code: '3' },
-      { name: '4', code: '4' },
-      { name: '6', code: '6' },
-      { name: '7', code: '7' },
-      { name: '8', code: '8' },
-      { name: '9', code: '9' },
-      { name: '10', code: '10' }
-    ];
-  }
+  ) { }
 
   ngOnInit(): void {
+    this.setNumbersArticule();
     this.idProductToDisplay = this._ar.snapshot.params['id'];
     this.getOneProduct();
-
   }
 
   public getOneProduct() {
     this.currentProducToDisplay = this.catalogue[this.idProductToDisplay - 1];
     this.checkTypeProduct();
+  }
+
+  setNumbersArticule() {
+    for (let i = 1; i <= 25; i++) {
+      this.numbersArticle.push(i);
+    }
   }
 
   public checkTypeProduct() {
@@ -71,20 +65,29 @@ export class ProduitUniqueComponent {
       this._messageService.add({ severity: 'error', summary: 'Echec', detail: 'Veuillez choisir une taille' });
 
     }
+
+
     else {
-      this._storage.addProduit({
-        Id: this.currentProducToDisplay.Id,
-        Title: this.currentProducToDisplay.Title,
-        Categorie: this.currentProducToDisplay.Categorie,
-        Price: this.currentProducToDisplay.Price,
-        Taille: [this.tailleSelected],
-        Type: this.currentProducToDisplay.Type,
-        Image: this.currentProducToDisplay.Image,
-        SecImage: this.currentProducToDisplay.SecImage,
-        Description: this.currentProducToDisplay.Description
-      });
-      this._messageService.add({ severity: 'success', summary: 'Succès', detail: 'Produit ajouté dans le shop' });
-      this._storage.getProduitsCount();
+      if (this._storage.getProduits().Id == this.currentProducToDisplay.Id) {
+        this._storage.updateProduits(this.currentProducToDisplay.Id);
+      }
+      else {
+        this._storage.addProduit({
+          Id: this.currentProducToDisplay.Id,
+          Title: this.currentProducToDisplay.Title,
+          Categorie: this.currentProducToDisplay.Categorie,
+          Price: this.currentProducToDisplay.Price,
+          Quantity: this.currentProducToDisplay.quantity,
+          Taille: [this.tailleSelected],
+          Type: this.currentProducToDisplay.Type,
+          Image: this.currentProducToDisplay.Image,
+          SecImage: this.currentProducToDisplay.SecImage,
+          Description: this.currentProducToDisplay.Description
+        });
+        this._messageService.add({ severity: 'success', summary: 'Succès', detail: 'Produit ajouté dans le shop' });
+        this._storage.getProduitsCount();
+
+      }
 
     }
   }

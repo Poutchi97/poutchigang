@@ -4,7 +4,7 @@
             <!-- <img src="../../assets/images/homewallpapercross.jpg" alt="homewallpaper" class=""> -->
             <div
                 class="z-30 h-[30rem] flex flex-col items-center text-center justify-evenly home_text_presentation py-3 ">
-                <h1
+                <h1 data-aos="fade-right" data-aos-delay="150"
                     class="text-5xl w-[900px] flex flex-col font-bold text-white max-lg:text-5xl max-lg:w-[700px] max-md:w-[500px] max-md:text-4xl max-sm:w-[300px] max-sm:text-2xl">
                     <span class="text-6xl max-md:text-5xl w-full uppercase poutchi-gang mb-3">Poutchi</span> Fournisseur
                     officiel
@@ -12,12 +12,12 @@
                     et de gymbros
                     depuis 2023
                 </h1>
-                <h2 class="text-gray-200 text-l max-w-md">
+                <h2 class="text-gray-200 text-l max-w-md" data-aos="fade-right" data-aos-delay="200">
                     Présent dans la région Liégeoise, <br>Poutchi fournis les gymbros en
                     coaching sportif,
                     motivation et équipements.</h2>
 
-                <div class="">
+                <div class="" data-aos="fade-right" data-aos-delay="250">
                     <button routerLink="/coaching"
                         class="rounded-lg mr-3 font-bold bg-blue-600 text-white transition duration-300 p-2 w-44 h-14 max-sm:w-32 max-sm:h-12 hover:bg-blue-700 ">
                         Coaching
@@ -31,20 +31,21 @@
             </div>
 
             <div class="overflow-hidden">
-                <div class="min-w-[600px] overflow-hidden rounded-full opacity-70 absolute h-[600px] bg-blue-500 right-[700px] top-60 z-0"
+                <div class="min-w-[600px] overflow-hidden rounded-full opacity-70 absolute h-[600px] bg-blue-500 right-[600px] top-60 z-0 animate-blob"
                     id="shape-1">
                 </div>
-                <div class="min-w-[350px] overflow-hidden rounded-full opacity-70 absolute h-[350px] bg-blue-500 right-[200px] bottom-20 z-0"
+                <div class="min-w-[500px] overflow-hidden rounded-full opacity-70 absolute h-[350px] bg-blue-500 right-[300px] bottom-20 z-0 animate-blob delay-200"
                     id="shape-2">
                 </div>
-                <div class="min-w-[400px] max-lg:hidden overflow-hidden rounded-full opacity-70 absolute h-[400px] bg-blue-500 left-[500px] top-24 z-0"
+                <div class="min-w-[400px] max-lg:hidden overflow-hidden rounded-full opacity-70 absolute h-[400px] bg-blue-500 right-[400px] top-28 z-0 animate-blob delay-500"
                     id="shape-3">
                 </div>
 
             </div>
         </div>
 
-        <div class="z-30 min-h-[700px] max-md:min-h-[550px] max-sm:min-h-[450px] flex items-center">
+        <div class="z-30 min-h-[700px] max-md:min-h-[550px] max-sm:min-h-[450px] flex items-center" data-aos="zoom-in"
+            data-aos-delay="400">
             <p-galleria [value]="sliderImageSrc" [changeItemOnIndicatorHover]="true" [showThumbnails]="false"
                 [showIndicators]="true" [responsiveOptions]="responsiveOptions">
 

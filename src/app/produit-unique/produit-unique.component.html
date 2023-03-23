@@ -1,32 +1,36 @@
 <p-toast [breakpoints]="{'920px': {width: '90%', right: '150', left: '150'}}"></p-toast>
-<div class="flex top_vente__container justify-center flex-wrap">
+<div class="flex top_vente__container justify-center flex-wrap pb-10">
     <div class="flex flex-wrap justify-evenly w-full items-center">
 
         <div class="text__description flex flex-col mx-10 justify-evenly content-between pt-3 max-w-4xl min-h-[500px]">
 
             <div>
                 <div class="min-h-[100px] flex items-center">
-                    <h1 class="text-4xl font-bold flex text-center justify-center w-full uppercase my-1">
+                    <h1 data-aos="fade-down" data-aos-delay="250"
+                        class="text-4xl font-bold flex text-center justify-center w-full uppercase my-1">
                         {{currentProducToDisplay.Title}}
                     </h1>
                 </div>
 
+                <div class="rounded-md flex flex-col justify-center mx-2 my-2">
+                    <div data-aos="zoom-in" data-aos-delay="150"
+                        class=" rounded-md flex justify-center image_container">
+                        <img class="rounded-md" [src]="currentProducToDisplay.Image" alt="gymbro">
+                    </div>
+                </div>
+
                 <div class="mb-10 flex justify-center">
-                    <p class="min-w-[275px] text-justify">
+                    <p data-aos="fade-up" data-aos-delay="350" class="min-w-[275px] text-justify">
                         {{currentProducToDisplay.Description}}
                     </p>
                 </div>
             </div>
 
-            <div class="rounded-md flex flex-col justify-center mx-2 my-2">
-                <div class=" rounded-md flex justify-center image_container">
-                    <img class="rounded-md" [src]="currentProducToDisplay.Image" alt="gymbro">
-                </div>
-            </div>
+
 
 
             <div class="flex flex-wrap mt-5 mb-2 items-center" *ngIf="displayTaille">
-                <button *ngFor="let taille of currentProducToDisplay.Taille"
+                <button data-aos="fade-up" data-aos-delay="350" *ngFor="let taille of currentProducToDisplay.Taille"
                     [ngClass]="{'taille-selected': tailleSelected == taille}" (click)="tailleSelectedStyle(taille)"
                     class="mr-1 mb-2 w-14 h-10 rounded-lg border text-black border-blue-600 hover:text-white hover:bg-blue-600">{{taille}}</button>
 
@@ -35,11 +39,16 @@
                 </span>
             </div>
 
-            <div class="min-h-[50px] flex items-center">
+            <div data-aos="fade-up" data-aos-delay="400" class="min-h-[50px] flex items-center">
                 <span class=" price text-lg font-bold my-1">{{currentProducToDisplay.Price}} €</span>
                 <!-- <p-dropdown [options]="quantity" [(ngModel)]="quantitySelected" optionLabel="Quantité"></p-dropdown> -->
             </div>
-            <div class="min-h-[50px]">
+
+            <div data-aos="fade-up" data-aos-delay="500" class="z-50">
+                <p-dropdown [options]="numbersArticle" [(ngModel)]="currentProducToDisplay.Quantity"></p-dropdown>
+
+            </div>
+            <div data-aos="fade-up" data-aos-delay="550" data-aos-offset="0" class="min-h-[50px] flex items-end">
                 <button (click)="addItemToStorage()"
                     class="rounded-md bg-blue-600 text-white transition duration-300 p-2 w-24 hover:bg-blue-700">
                     Acheter

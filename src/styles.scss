@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "~aos/dist/aos.css";
 *, html{
     padding: 0;
     margin: 0;

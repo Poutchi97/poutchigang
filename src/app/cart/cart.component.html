@@ -1,13 +1,13 @@
 <p-sidebar [(visible)]="display" position="right" class="flex item" styleClass="p-sidebar-md" [baseZIndex]="10000">
     <div>
         <ng-container class="bg-slate-400" *ngFor="let item of produitsStorage">
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between max-lg:block">
                 <a routerLink="/boutique/produit/{{item.Id}}" target="_blank">
                     <div class="flex items-center">
                         <div class="p-5 m-5 bg-gray-200 rounded-md">
-
                             <img class="rounded-sm" src="{{item.Image}}" alt="{{item.Title}}" width="75">
-
+                            <!-- <span class="absolute top-2 right-40">x</span> -->
+                            <!-- TODO: Ajouter une croix sur l'image dans un corner, afin de supprimer l'articule. Cela permettrait de supprimer le bouton corbeille et de libérer de l'espace dans le cart. -->
                         </div>
                         <div class="my-5 flex flex-col">
                             <h2 class="py-1 text-blue-600">{{item.Title}}</h2>
@@ -16,25 +16,28 @@
                             </ng-container>
 
                             <span class="py-1">
-                                Prix : {{item.Price}}€
+                                Prix : {{item.Price * item.Quantity}} €
                             </span>
                         </div>
                     </div>
                 </a>
 
-                <div>
-                    <p>Quantité : 1</p>
-                </div>
+                <div class="flex w-1/2 justify-evenly max-lg:w-full max-lg:justify-between max-lg:px-5">
+                    <div class="">
+                        <p>Quantité : <p-dropdown [options]="numbersArticle" [(ngModel)]="item.Quantity"></p-dropdown>
+                        </p>
+                    </div>
 
-                <div class="pr-10">
-                    <fa-icon class="hover:text-red-600 hover:cursor-pointer" (click)="deleteItem(item.Id)"
-                        [icon]="faTrash"></fa-icon>
+                    <div class="flex items-center">
+                        <fa-icon class="hover:text-red-600 hover:cursor-pointer" (click)="deleteItem(item.Id)"
+                            [icon]="faTrash"></fa-icon>
+                    </div>
                 </div>
             </div>
         </ng-container>
     </div>
 
-    <div>
+    <ng-template pTemplate="footer">
         <div>
             <ul>
                 <li class="flex justify-between">
@@ -57,5 +60,5 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </ng-template>
 </p-sidebar>

@@ -2,29 +2,31 @@
     <div class="image__container flex items-center justify-around flex-wrap pb-10 min-h-[800px]">
         <div
             class="h-[30rem] max-sm:items-center flex flex-col justify-evenly  home_text_presentation py-5 max-sm:w-[300px]">
-            <h1
+            <h1 data-aos="fade-right" data-aos-delay="100"
                 class="text-6xl w-[900px]  font-bold text-white max-lg:text-5xl max-lg:w-[700px] max-md:w-[500px] max-md:text-4xl max-sm:w-[300px] max-sm:text-2xl">
                 <span class="uppercase text-blue-600">Poutchi</span> crée des vêtements de qualité afin que vous
                 réalisiez de nouveaux PR!
             </h1>
-            <h2 class="text-gray-200 text-l max-w-md ">
+            <h2 class="text-gray-200 text-l max-w-md " data-aos="fade-right" data-aos-delay="150">
                 Vous recherchez un vêtement de qualité pour vous entrainer ? <span
                     class="uppercase text-blue-600 font-bold">Poutchi</span> est
                 là pour vous.
             </h2>
-            <span class="text-blue-600 w-full">Commandez <span class="text-white">vos vêtements
+            <span data-aos="fade-right" data-aos-delay="250" class="text-blue-600 w-full">Commandez <span
+                    class="text-white">vos vêtements
                     dès
                     maintenant !</span></span>
 
             <div class="">
-                <button class="rounded-lg text-white font-bold bg-gray-800 transition duration-300 p-2 w-44 h-14">
+                <button data-aos="fade-right" data-aos-delay="150"
+                    class="rounded-lg text-white font-bold bg-gray-800 transition duration-300 p-2 w-44 h-14">
                     <span class="text-green-600 pr-1.5">●</span>Stock disponible
                 </button>
 
             </div>
         </div>
 
-        <div>
+        <div data-aos="fade-left" data-aos-delay="200">
             <img src="../../assets/images/gymbro.png" width="400" alt="">
         </div>
     </div>
@@ -33,19 +35,19 @@
     <div class="bg-gray-200" id="boutique">
         <div class="max-w-[1350px] flex, mx-auto relative">
             <div class="h-[75px] max-xl:justify-center flex items-center pt-10 mx-2">
-                <h1 class="uppercase font-bold text-2xl">Boutique</h1>
+                <h2 data-aos="fade-up" data-aos-delay="150" class="uppercase font-bold text-2xl">Boutique</h2>
             </div>
 
             <div class="max-w-[1350px]">
                 <div class="flex justify-center py-10 top_vente__container flex-wrap">
                     <div *ngFor="let itemCatalogue of catalogue; let i = index" (click)="displayDetails(i)" class="w-80 cursor-pointer
                 rounded-md flex flex-col justify-center mx-2 pb-10">
-                        <div
+                        <div data-aos="fade-up" data-aos-delay="300"
                             class="bg-black rounded-md flex justify-center image_container hover:scale-105 transition-all ease-in-out">
                             <img class="rounded-md" [src]="itemCatalogue.Image" alt="gymbro"
                                 (mouseover)="itemCatalogue.SecImage" (mouseout)="itemCatalogue.Image">
                         </div>
-                        <div class="text__description text-center pt-3">
+                        <div data-aos="fade-up" data-aos-delay="150" class="text__description text-center pt-3">
                             <span class="text-gray-600">{{itemCatalogue.Categorie}}</span>
                             <h3 class="font-bold uppercase my-1">{{itemCatalogue.Title}}</h3>
                             <span class="price font-bold my-1">{{itemCatalogue.Price}} €</span>

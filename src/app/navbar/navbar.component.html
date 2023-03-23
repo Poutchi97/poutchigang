@@ -1,7 +1,6 @@
-<div class="bg-black
-">
+<div class="bg-black">
     <div class="navbar">
-        <div class="logo">
+        <div class="logo" data-aos="fade-down" data-aos-delay="250">
             <!-- <span>LOGO</span> -->
             <a routerLink=""><span class="text-blue-500">Poutchi</span></a>
         </div>
@@ -9,14 +8,14 @@
 
         <nav class="button__container">
             <ul class="">
-                <li class="max-lg:hidden">
+                <li class="max-lg:hidden" data-aos="fade-down" data-aos-delay="300">
                     <a routerLink="" class="hover:border-b-2 text-white border-blue-600">Accueil</a>
                 </li>
-                <li class="max-lg:hidden">
+                <li class="max-lg:hidden" data-aos="fade-down" data-aos-delay="350">
                     <a routerLink="/coaching"
                         class="text-white hover:border-b-2 transition-all border-blue-600">Coaching</a>
                 </li>
-                <li class="max-lg:hidden">
+                <li class="max-lg:hidden" data-aos="fade-down" data-aos-delay="400">
                     <a routerLink="/boutique" class="text-white hover:border-b-2 border-blue-600">Boutique</a>
                 </li>
             </ul>
@@ -25,14 +24,15 @@
                 [fullScreen]="true" [(visible)]="display" [baseZIndex]="10000">
                 <div class="flex justify-center items-center w-full  h-[80vh]">
                     <ul class="flex-col h-40 justify-around">
-                        <li (click)="display = false" class=""><a routerLink=""
-                                class="hover:border-b-2 font-bold border-blue-600">Accueil</a>
+                        <li data-aos="fade-right" data-aos-delay="300" (click)="display = false" class=""><a
+                                routerLink="" class="hover:border-b-2 font-bold border-blue-600">Accueil</a>
                         </li>
-                        <li (click)="display = false" class=""><a routerLink="/coaching"
+                        <li data-aos="fade-right" data-aos-delay="350" (click)="display = false" class=""><a
+                                routerLink="/coaching"
                                 class=" hover:border-b-2 font-bold transition-all border-blue-600">Coaching</a>
                         </li>
-                        <li (click)="display = false" class=""><a routerLink="/boutique"
-                                class=" hover:border-b-2 font-bold border-blue-600">Boutique</a>
+                        <li data-aos="fade-right" data-aos-delay="400" (click)="display = false" class=""><a
+                                routerLink="/boutique" class=" hover:border-b-2 font-bold border-blue-600">Boutique</a>
                         </li>
 
                     </ul>
@@ -42,7 +42,7 @@
 
         <div class="button__container">
             <ul>
-                <li>
+                <li data-aos="fade-down" data-aos-delay="400">
                     <i class="pi pi-shopping-cart mr-4  text-white" *ngIf="localItemsCount != '0'; else withoutBadge"
                         pBadge style="font-size: 1.25rem" [value]="localItemsCount" (click)="setStatus()"></i>
                     <ng-template #withoutBadge>
@@ -50,7 +50,7 @@
                             (click)="setStatus()"></i></ng-template>
                 </li>
 
-                <li class="hidden max-lg:block">
+                <li class="hidden max-lg:block" data-aos="fade-down" data-aos-delay="450">
 
                     <button (click)="display = true" class="text-white">
                         <fa-icon [icon]="faBars"></fa-icon>

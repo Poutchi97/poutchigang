@@ -5,6 +5,7 @@ export interface ICatalogue {
     Title: string,
     Categorie: string,
     Price: number,
+    Quantity: number,
     Taille: string[],
     Type: TypeProduit
     Image: string,

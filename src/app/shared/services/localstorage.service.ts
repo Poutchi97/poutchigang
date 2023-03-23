@@ -28,6 +28,17 @@ export class LocalstorageService {
     }
   }
 
+  updateProduits(id: any) {
+    const dataProduitsStorage = JSON.parse(localStorage.getItem(this.storageKeyForProducts)!) || [];
+    if (dataProduitsStorage) {
+      dataProduitsStorage.forEach((product: any) => {
+        if (product.Id == id) {
+          product.Quantity++;
+        }
+      });
+    }
+  }
+
   deleteProduits(id: string) {
     const productsArray = JSON.parse(localStorage.getItem(this.storageKeyForProducts)!);
     const index = productsArray.findIndex((produit: any) => produit.Id === id);

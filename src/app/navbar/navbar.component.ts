@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faBars, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from '../shared/services/cart.service';
 import { LocalstorageService } from '../shared/services/localstorage.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-navbar',

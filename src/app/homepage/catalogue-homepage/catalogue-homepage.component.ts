@@ -10,7 +10,7 @@ import { ProduitsService } from 'src/app/shared/services/produits.service';
 })
 export class CatalogueHomepageComponent implements OnInit {
   public catalogue: ICatalogue[] = this._produits.catalogue;
-
+  // public delayedIllustration: string = '100';
   // public produits!: ICatalogue[];
 
   constructor(
