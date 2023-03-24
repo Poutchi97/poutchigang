@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { MessageService } from 'primeng/api';
 import { ICatalogue } from '../interfaces/icatalogue';
 import { CartService } from '../shared/services/cart.service';
@@ -13,7 +14,7 @@ import { ProduitsService } from '../shared/services/produits.service';
   providers: [MessageService]
 })
 export class ProduitUniqueComponent {
-
+  public faArrowLeft = faArrowLeft;
   public catalogue: ICatalogue[] = this._produits.catalogue;
   public idProductToDisplay: any;
   public currentProducToDisplay: any;
@@ -23,6 +24,7 @@ export class ProduitUniqueComponent {
   public quantity!: any;
   public quantitySelected!: any;
   public numbersArticle: number[] = [];
+  public littleNavigation: string = "";
 
   // public produits!: ICatalogue[];
 
@@ -32,7 +34,7 @@ export class ProduitUniqueComponent {
     private _router: Router,
     private _ar: ActivatedRoute,
     private _storage: LocalstorageService,
-    private _messageService: MessageService
+    private _messageService: MessageService,
 
   ) { }
 
@@ -40,6 +42,7 @@ export class ProduitUniqueComponent {
     this.setNumbersArticule();
     this.idProductToDisplay = this._ar.snapshot.params['id'];
     this.getOneProduct();
+    this.littleNavigation = this._router.url;
   }
 
   public getOneProduct() {
