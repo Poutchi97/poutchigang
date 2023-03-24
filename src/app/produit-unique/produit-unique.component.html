@@ -5,14 +5,14 @@
         <div class="text__description flex flex-col mx-10 justify-evenly content-between pt-3 max-w-4xl min-h-[500px]">
 
             <div>
-                <div class="min-h-[100px] flex items-center">
+                <div class="min-h-[150px] flex items-center">
                     <h1 data-aos="fade-down" data-aos-delay="250"
                         class="text-4xl font-bold flex text-center justify-center w-full uppercase my-1">
                         {{currentProducToDisplay.Title}}
                     </h1>
                 </div>
 
-                <div class="rounded-md flex flex-col justify-center mx-2 my-2">
+                <div class="mb-16 rounded-md flex flex-col justify-center mx-2 my-2">
                     <div data-aos="zoom-in" data-aos-delay="150"
                         class=" rounded-md flex justify-center image_container">
                         <img class="rounded-md" [src]="currentProducToDisplay.Image" alt="gymbro">
@@ -29,24 +29,25 @@
 
 
 
-            <div class="flex flex-wrap mt-5 mb-2 items-center" *ngIf="displayTaille">
+            <div class="flex flex-wrap mb-9 items-center" *ngIf="displayTaille">
                 <button data-aos="fade-up" data-aos-delay="350" *ngFor="let taille of currentProducToDisplay.Taille"
                     [ngClass]="{'taille-selected': tailleSelected == taille}" (click)="tailleSelectedStyle(taille)"
-                    class="mr-1 mb-2 w-14 h-10 rounded-lg border text-black border-blue-600 hover:text-white hover:bg-blue-600">{{taille}}</button>
+                    class="mr-1 w-14 h-10 rounded-lg border text-black border-blue-600 max-sm:w-10  hover:text-white hover:bg-blue-600">{{taille}}</button>
 
-                <span class="bg-red-600 text-white p-2 rounded-lg transition-all" *ngIf="!isTailleSelected">
+                <span class="bg-red-600 text-white p-2 ml-3 max-sm:hidden rounded-lg transition-all"
+                    *ngIf="!isTailleSelected">
                     Veuillez choisir une taille
                 </span>
             </div>
 
-            <div data-aos="fade-up" data-aos-delay="400" class="min-h-[50px] flex items-center">
-                <span class=" price text-lg font-bold my-1">{{currentProducToDisplay.Price}} €</span>
-                <!-- <p-dropdown [options]="quantity" [(ngModel)]="quantitySelected" optionLabel="Quantité"></p-dropdown> -->
-            </div>
-
-            <div data-aos="fade-up" data-aos-delay="500" class="z-50">
-                <p-dropdown [options]="numbersArticle" [(ngModel)]="currentProducToDisplay.Quantity"></p-dropdown>
-
+            <div class="flex justify-between w-52 mb-6">
+                <div data-aos="fade-up" data-aos-delay="500" class="z-50">
+                    <p-dropdown [options]="numbersArticle" [(ngModel)]="currentProducToDisplay.Quantity"></p-dropdown>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300" class="min-h-[50px] min-w-[100px] flex items-center">
+                    <span class=" price text-lg font-bold my-1">{{currentProducToDisplay.Price}} €</span>
+                    <!-- <p-dropdown [options]="quantity" [(ngModel)]="quantitySelected" optionLabel="Quantité"></p-dropdown> -->
+                </div>
             </div>
             <div data-aos="fade-up" data-aos-delay="550" data-aos-offset="0" class="min-h-[50px] flex items-end">
                 <button (click)="addItemToStorage()"
