@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'text': ['Montserrat'],
+        'title': ['Oswald']
+      },
       display: ["group-hover"],
       animation: {
         blob: "blob 7s linear infinite"

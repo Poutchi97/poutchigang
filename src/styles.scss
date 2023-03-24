@@ -1,10 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html{
+        font-family: 'Montserrat', sans-serif;
+        // font-family: 'Oswald', sans-serif; 
+    }
+}
 @import "~aos/dist/aos.css";
 *, html{
     padding: 0;
     margin: 0;
-    
 }
