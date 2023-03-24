@@ -25,6 +25,8 @@ import { BadgeModule } from 'primeng/badge';
 import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { ConditionsVenteComponent } from './conditions/conditions-vente/conditions-vente.component';
+import { PolitiqueConfidentialiteComponent } from './conditions/politique-confidentialite/politique-confidentialite.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { FormsModule } from '@angular/forms';
     CartComponent,
     ProgrammeComponent,
     DeroulementCoachingComponent,
+    ConditionsVenteComponent,
+    PolitiqueConfidentialiteComponent,
 
   ],
   imports: [
