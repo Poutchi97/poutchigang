@@ -85,7 +85,10 @@ export class CartComponent {
     }
 
     this.total = Math.round((this.sousTotal + this.fraisDePort) * 100) / 100;
+  }
 
+  changeDisplayOfCart() {
+    this._cart.setDisplayable(false);
   }
 
 }
