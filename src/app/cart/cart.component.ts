@@ -3,6 +3,8 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ICatalogue } from '../interfaces/icatalogue';
 import { CartService } from '../shared/services/cart.service';
 import { LocalstorageService } from '../shared/services/localstorage.service';
+import { HttpClient } from '@angular/common/http';
+import { loadStripe } from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-cart',
@@ -24,6 +26,7 @@ export class CartComponent {
   constructor(
     private _cart: CartService,
     private _storage: LocalstorageService,
+    private _http: HttpClient
   ) {
 
   }
@@ -87,8 +90,30 @@ export class CartComponent {
     this.total = Math.round((this.sousTotal + this.fraisDePort) * 100) / 100;
   }
 
+  emptyCart() {
+    this._storage.emptyStorage();
+    this._cart.setProduits(this._storage.getProduits())
+  }
+
+
+  onCheckout() {
+    this._http.post('http://localhost:4242/checkout', {
+      items: this.produitsStorage
+    }).subscribe(async (res: any) => {
+      let stripe = await loadStripe('pk_test_51My9R5GEdrsUZVAABXqIzlYI9G3vVXtgWeLNbRQGTLCD6xaEdrZnwUyYPA0i3qIEeE1jv0MdXMrACZaFLpp77pG0001X5dVJOF');
+      stripe?.redirectToCheckout({
+        sessionId: res.id,
+
+
+      });
+    });
+
+  }
+
+
   changeDisplayOfCart() {
     this._cart.setDisplayable(false);
+    this.onCheckout();
   }
 
 }

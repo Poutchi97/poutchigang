@@ -54,4 +54,8 @@ export class LocalstorageService {
       this.itemsCount.next(JSON.parse(dataProduitsStorage).length);
     }
   }
+
+  emptyStorage() {
+    localStorage.clear();
+  }
 }

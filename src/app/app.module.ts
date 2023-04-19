@@ -28,8 +28,8 @@ import { FormsModule } from '@angular/forms';
 import { ConditionsVenteComponent } from './conditions/conditions-vente/conditions-vente.component';
 import { PolitiqueConfidentialiteComponent } from './conditions/politique-confidentialite/politique-confidentialite.component';
 import { StepsModule } from 'primeng/steps';
-import { PanierComponent } from './paiement/panier/panier.component';
-import { CommanderComponent } from './paiement/commander/commander.component';
+import { SuccessComponent } from './paiement/success/success.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,8 +47,7 @@ import { CommanderComponent } from './paiement/commander/commander.component';
     DeroulementCoachingComponent,
     ConditionsVenteComponent,
     PolitiqueConfidentialiteComponent,
-    PanierComponent,
-    CommanderComponent,
+    SuccessComponent,
 
   ],
   imports: [

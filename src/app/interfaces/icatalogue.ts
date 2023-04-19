@@ -9,6 +9,7 @@ export interface ICatalogue {
     Taille: string[],
     Type: TypeProduit
     Image: string,
+    ImageCheckout: string,
     SecImage: string,
     Description: string,
 }

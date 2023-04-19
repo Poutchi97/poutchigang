@@ -1,0 +1,29 @@
+<div class="mx-10 min-h-[calc(100vh-300px)]">
+    <div class="w-full flex justify-center items-center h-52">
+        <h1 class="font-bold text-4xl lg:text-6xl">Achat réussi !</h1>
+    </div>
+
+    <div class="flex flex-col items-center">
+        <div class="pb-10">
+            <p class="">Merci d'avoir acheté notre produit. Nous espérons que vous en serez satisfait(e).</p>
+            <p class="py-5">Vous trouverez ci-dessous les détails de votre commande :</p>
+        </div>
+
+        <div *ngFor="let item of produits"
+            class="flex items-center flex-wrap justify-center my-5 p-5 rounded-xl bg-zinc-200 shadow-sm hover:shadow-lg transition-all">
+            <img [src]=" item.Image" width="150" height="200" alt="item.Title"
+                class="flex justify-center mr-5 rounded-md">
+            <ul class="py-5">
+                <li><strong>Nom du produit :</strong> {{item.Title}}</li>
+                <li *ngIf="item.Taille != ''"><strong>Taille :</strong> {{item.Taille}}</li>
+                <li><strong>Prix :</strong> {{item.Price}} euro</li>
+                <li><strong>Date de la commande :</strong> {{date}}</li>
+                <!-- <li><strong>Adresse de livraison :</strong> 123 Rue de la Victoire, 75001 Paris</li> -->
+            </ul>
+        </div>
+        <div class="flex flex-col justify-end py-10">
+            <p>N'hésitez pas à nous contacter si vous avez des questions ou des commentaires.</p>
+            <p>Merci encore de votre achat !</p>
+        </div>
+    </div>
+</div>

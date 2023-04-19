@@ -84,6 +84,7 @@ export class ProduitUniqueComponent {
           Taille: [this.tailleSelected],
           Type: this.currentProducToDisplay.Type,
           Image: this.currentProducToDisplay.Image,
+          ImageCheckout: this.currentProducToDisplay.ImageCheckout,
           SecImage: this.currentProducToDisplay.SecImage,
           Description: this.currentProducToDisplay.Description
         });
