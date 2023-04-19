@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const bodyparser = require("body-parser");
+const serverKey = process.env.SERVER_KEY
 
 
 const app = express();
@@ -9,7 +10,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 app.use(cors({ origin: true, credentials: true }));
 
-const stripe = require("stripe")("sk_test_51My9R5GEdrsUZVAA5RFTP5Cj7ZODUsfZuL9ZehiIpABTeyuiah0Na7z4C4vHfBKc6XwZZWZ8tU8xYW0eYfZesblN00d7Bp9dem");
+const stripe = require("stripe")(serverKey);
 
 app.post("/checkout", async (req, resp, next) => {
     try {

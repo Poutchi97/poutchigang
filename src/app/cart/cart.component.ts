@@ -5,6 +5,8 @@ import { CartService } from '../shared/services/cart.service';
 import { LocalstorageService } from '../shared/services/localstorage.service';
 import { HttpClient } from '@angular/common/http';
 import { loadStripe } from '@stripe/stripe-js';
+import { environment } from '../../environments/environment';
+
 
 @Component({
   selector: 'app-cart',
@@ -100,7 +102,7 @@ export class CartComponent {
     this._http.post('http://localhost:4242/checkout', {
       items: this.produitsStorage
     }).subscribe(async (res: any) => {
-      let stripe = await loadStripe('pk_test_51My9R5GEdrsUZVAABXqIzlYI9G3vVXtgWeLNbRQGTLCD6xaEdrZnwUyYPA0i3qIEeE1jv0MdXMrACZaFLpp77pG0001X5dVJOF');
+      let stripe = await loadStripe(environment.CLIENT_KEY);
       stripe?.redirectToCheckout({
         sessionId: res.id,
 
