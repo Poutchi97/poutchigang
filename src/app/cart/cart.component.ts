@@ -5,7 +5,6 @@ import { CartService } from '../shared/services/cart.service';
 import { LocalstorageService } from '../shared/services/localstorage.service';
 import { HttpClient } from '@angular/common/http';
 import { loadStripe } from '@stripe/stripe-js';
-import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -16,7 +15,7 @@ import { environment } from '../../environments/environment';
 export class CartComponent {
   faTrash = faTrash;
   public display!: boolean;
-  public sousTotal: number = 0;
+  public totalToDisplay: string = "";
   public produitsStorage: any;
   public produitsPrix: number[] = [];
   public total: number = 0;
@@ -69,27 +68,34 @@ export class CartComponent {
   }
 
   calculeDuSousTotal() {
-    this.sousTotal = 0;
+    this.total = 0;
+    this.totalToDisplay = "0"
     for (let index = 0; index < this.produitsStorage.length; index++) {
-      this.sousTotal += this.produitsStorage[index].Price;
-    }
+      this.total += this.produitsStorage[index].Price;
+
+    };
+
+    console.log(this.total);
+
+    console.log(this.total.toFixed(2));
+    this.totalToDisplay = this.total.toFixed(2)
   }
 
   calculeDuTotal() {
-    this.total = 0;
-    this.fraisDePort = 0;
+    // this.total = 0;
+    // this.fraisDePort = 0;
 
-    if (this.sousTotal >= 30) {
-      this.fraisDePort = 5.99
-    }
-    if (this.sousTotal >= 40) {
-      this.fraisDePort = 6.99
-    }
-    if (this.sousTotal < 30 && this.sousTotal > 0) {
-      this.fraisDePort = 4.99
-    }
+    // if (this.sousTotal >= 30) {
+    //   this.fraisDePort = 5.99
+    // }
+    // if (this.sousTotal >= 40) {
+    //   this.fraisDePort = 6.99
+    // }
+    // if (this.sousTotal < 30 && this.sousTotal > 0) {
+    //   this.fraisDePort = 4.99
+    // }
 
-    this.total = Math.round((this.sousTotal + this.fraisDePort) * 100) / 100;
+    // this.total = Math.round((this.sousTotal + this.fraisDePort) * 100) / 100;
   }
 
   emptyCart() {
@@ -102,7 +108,7 @@ export class CartComponent {
     this._http.post('http://localhost:4242/checkout', {
       items: this.produitsStorage
     }).subscribe(async (res: any) => {
-      let stripe = await loadStripe(environment.CLIENT_KEY);
+      let stripe = await loadStripe("pk_test_51My9R5GEdrsUZVAABXqIzlYI9G3vVXtgWeLNbRQGTLCD6xaEdrZnwUyYPA0i3qIEeE1jv0MdXMrACZaFLpp77pG0001X5dVJOF");
       stripe?.redirectToCheckout({
         sessionId: res.id,
 
