@@ -26,6 +26,9 @@ export class LocalstorageService {
       const parsedData = JSON.parse(dataProduitsStorage);
       return parsedData
     }
+    else {
+      return [];
+    }
   }
 
   updateProducts(produits: ICatalogue) {
@@ -51,5 +54,6 @@ export class LocalstorageService {
 
   emptyStorage() {
     localStorage.clear();
+    this.itemsCount.next(0);
   }
 }
