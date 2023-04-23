@@ -1,7 +1,7 @@
 <p-sidebar [(visible)]="display" position="right" class="flex item" styleClass="p-sidebar-md" [baseZIndex]="10000">
     <div>
         <ng-container class="bg-slate-400" *ngFor="let item of produitsStorage">
-            <div class="flex items-center justify-between max-lg:block">
+            <div class="flex items-center justify-between pt-10 overflow-hidden max-lg:block">
                 <a routerLink="/boutique/produit/{{item.Id}}" target="_blank">
                     <div class="flex items-center">
                         <div class="p-5 m-5 bg-gray-200 rounded-md">
@@ -26,7 +26,7 @@
 
                 <div class="flex w-1/2 justify-evenly max-lg:w-full max-lg:justify-between max-lg:px-5">
                     <div class="">
-                        <p>Quantité : <p-dropdown [options]="numbersArticle"
+                        <p>Quantité : <p-dropdown appendTo="body" class="" [options]="numbersArticle"
                                 (onChange)="calculeDuSousTotal(item.Id, item.Taille)"
                                 [(ngModel)]="item.Quantity"></p-dropdown>
                         </p>
