@@ -46,10 +46,8 @@ export class CartComponent {
     this._cart._produitsStorage.subscribe({
       next: (produits: ICatalogue) => {
         this.produitsStorage = produits;
-        console.log(this.produitsStorage);
 
         this.calculeDuSousTotal();
-        this.calculeDuTotal();
       }
     });
   }
@@ -71,32 +69,12 @@ export class CartComponent {
     this.total = 0;
     this.totalToDisplay = "0"
     for (let index = 0; index < this.produitsStorage.length; index++) {
-      this.total += this.produitsStorage[index].Price;
+      this.total += this.produitsStorage[index].Price * this.produitsStorage[index].Quantity;
 
     };
-
-    console.log(this.total);
-
-    console.log(this.total.toFixed(2));
     this.totalToDisplay = this.total.toFixed(2)
   }
 
-  calculeDuTotal() {
-    // this.total = 0;
-    // this.fraisDePort = 0;
-
-    // if (this.sousTotal >= 30) {
-    //   this.fraisDePort = 5.99
-    // }
-    // if (this.sousTotal >= 40) {
-    //   this.fraisDePort = 6.99
-    // }
-    // if (this.sousTotal < 30 && this.sousTotal > 0) {
-    //   this.fraisDePort = 4.99
-    // }
-
-    // this.total = Math.round((this.sousTotal + this.fraisDePort) * 100) / 100;
-  }
 
   emptyCart() {
     this._storage.emptyStorage();

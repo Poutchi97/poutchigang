@@ -28,15 +28,10 @@ export class LocalstorageService {
     }
   }
 
-  updateProduits(id: any) {
-    const dataProduitsStorage = JSON.parse(localStorage.getItem(this.storageKeyForProducts)!) || [];
-    if (dataProduitsStorage) {
-      dataProduitsStorage.forEach((product: any) => {
-        if (product.Id == id) {
-          product.Quantity++;
-        }
-      });
-    }
+  updateProducts(produits: ICatalogue) {
+    localStorage.setItem(this.storageKeyForProducts, JSON.stringify(produits));
+    console.log('updated');
+
   }
 
   deleteProduits(id: string) {

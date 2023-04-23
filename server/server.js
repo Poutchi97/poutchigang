@@ -16,7 +16,7 @@ app.post("/checkout", async (req, resp, next) => {
     try {
 
         const session = await stripe.checkout.sessions.create({
-            shipping_address_collection: { allowed_countries: ['BE'] },
+            shipping_address_collection: { allowed_countries: ['BE', 'FR'] },
             shipping_options: [
                 {
                     shipping_rate_data: {
@@ -38,16 +38,17 @@ app.post("/checkout", async (req, resp, next) => {
                 },
                 quantity: item.Quantity
             }
-            )),
+            )
+            ),
             mode: "payment",
             success_url: "http://localhost:4200/boutique/success",
             cancel_url: "http://localhost:4242/cancel.html",
 
-
-
         });
 
-        resp.status(200).json(session)
+        resp.status(200).json(
+            session)
+
 
     } catch (error) {
         next(error);

@@ -22,7 +22,7 @@ export class ProduitUniqueComponent {
   public isTailleSelected: boolean = true;
   public displayTaille: boolean = true;
   public quantity!: any;
-  public quantitySelected!: any;
+  public quantitySelected: number = 1;
   public numbersArticle: number[] = [];
   public littleNavigation: string = "";
 
@@ -66,13 +66,14 @@ export class ProduitUniqueComponent {
     if (this.tailleSelected.length <= 0 && this.currentProducToDisplay.Type == 1) {
       this.isTailleSelected = false;
       this._messageService.add({ severity: 'error', summary: 'Echec', detail: 'Veuillez choisir une taille' });
-
     }
 
-
     else {
-      if (this._storage.getProduits().Id == this.currentProducToDisplay.Id) {
-        this._storage.updateProduits(this.currentProducToDisplay.Id);
+      const products = this._storage.getProduits();
+      const existingItemIndex = products.findIndex((item: any) => item.Id === this.currentProducToDisplay.Id && item.Taille[0] === this.tailleSelected)
+      if (existingItemIndex !== -1) {
+        products[existingItemIndex].Quantity += this.quantitySelected;
+        this._storage.updateProducts(products);
       }
       else {
         this._storage.addProduit({
@@ -80,7 +81,7 @@ export class ProduitUniqueComponent {
           Title: this.currentProducToDisplay.Title,
           Categorie: this.currentProducToDisplay.Categorie,
           Price: this.currentProducToDisplay.Price,
-          Quantity: this.currentProducToDisplay.quantity,
+          Quantity: this.quantitySelected,
           Taille: [this.tailleSelected],
           Type: this.currentProducToDisplay.Type,
           Image: this.currentProducToDisplay.Image,
@@ -90,6 +91,7 @@ export class ProduitUniqueComponent {
         });
         this._messageService.add({ severity: 'success', summary: 'Succès', detail: 'Produit ajouté dans le shop' });
         this._storage.getProduitsCount();
+
 
       }
 
