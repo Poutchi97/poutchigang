@@ -30,7 +30,6 @@ export class LocalstorageService {
 
   updateProducts(produits: ICatalogue) {
     localStorage.setItem(this.storageKeyForProducts, JSON.stringify(produits));
-    console.log('updated');
 
   }
 

@@ -22,6 +22,7 @@ export class CartComponent {
   public fraisDePort = 0;
   public isTaille = true;
   public numbersArticle: number[] = [];
+  public quantitySelected!: number;
   public numbersArticleSelected: number = 1;
 
   constructor(
@@ -46,8 +47,9 @@ export class CartComponent {
     this._cart._produitsStorage.subscribe({
       next: (produits: ICatalogue) => {
         this.produitsStorage = produits;
-
-        this.calculeDuSousTotal();
+        this.produitsStorage.forEach((element: any) => {
+          this.calculeDuSousTotal(element.Id, element.Taille[0])
+        });
       }
     });
   }
@@ -63,15 +65,22 @@ export class CartComponent {
     this._storage.getProduitsCount();
     this._cart.setProduits(this._storage.getProduits())
     this.getItem();
+
   }
 
-  calculeDuSousTotal() {
+  calculeDuSousTotal(id: number, taille: string) {
     this.total = 0;
     this.totalToDisplay = "0"
     for (let index = 0; index < this.produitsStorage.length; index++) {
       this.total += this.produitsStorage[index].Price * this.produitsStorage[index].Quantity;
-
     };
+
+    const products = this._storage.getProduits();
+    const existingItemIndex = products.findIndex((item: any) => item.Id === id && item.Taille[0] === taille[0])
+    if (existingItemIndex !== -1) {
+      products[existingItemIndex].Quantity = this.produitsStorage[existingItemIndex].Quantity;
+    }
+    this._storage.updateProducts(products);
     this.totalToDisplay = this.total.toFixed(2)
   }
 
@@ -90,10 +99,8 @@ export class CartComponent {
       stripe?.redirectToCheckout({
         sessionId: res.id,
 
-
       });
     });
-
   }
 
 

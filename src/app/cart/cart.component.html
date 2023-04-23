@@ -12,11 +12,13 @@
                         <div class="my-5 flex flex-col">
                             <h2 class="py-1 text-blue-600">{{item.Title}}</h2>
                             <ng-container *ngFor="let taille of item.Taille">
-                                <span class="py-1" *ngIf="taille.length >= 1">Taille : {{taille}}</span>
+                                <span class="py-1" *ngIf="taille.length >= 1">Taille :
+                                    <span class="font-semibold">{{taille}}</span>
+                                </span>
                             </ng-container>
 
                             <span class="py-1">
-                                Prix : {{item.Price * item.Quantity}} €
+                                Prix : {{item.Price * item.Quantity | number: '1.2-2'}} €
                             </span>
                         </div>
                     </div>
@@ -24,7 +26,9 @@
 
                 <div class="flex w-1/2 justify-evenly max-lg:w-full max-lg:justify-between max-lg:px-5">
                     <div class="">
-                        <p>Quantité : <p-dropdown [options]="numbersArticle" [(ngModel)]="item.Quantity"></p-dropdown>
+                        <p>Quantité : <p-dropdown [options]="numbersArticle"
+                                (onChange)="calculeDuSousTotal(item.Id, item.Taille)"
+                                [(ngModel)]="item.Quantity"></p-dropdown>
                         </p>
                     </div>
 

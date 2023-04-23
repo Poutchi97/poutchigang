@@ -32,11 +32,14 @@ app.post("/checkout", async (req, resp, next) => {
                     currency: "eur",
                     product_data: {
                         name: item.Title,
-                        images: [item.ImageCheckout]
+                        description: 'Taille: ' + item.Taille[0],
+                        images: [item.ImageCheckout],
+
                     },
                     unit_amount: item.Price * 100
                 },
-                quantity: item.Quantity
+                quantity: item.Quantity,
+
             }
             )
             ),
