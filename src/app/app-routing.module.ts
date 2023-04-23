@@ -7,6 +7,7 @@ import { PolitiqueConfidentialiteComponent } from './conditions/politique-confid
 import { HomepageComponent } from './homepage/homepage.component';
 import { ProduitUniqueComponent } from './produit-unique/produit-unique.component';
 import { SuccessComponent } from './paiement/success/success.component';
+import { CancelComponent } from './paiement/cancel/cancel.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, pathMatch: 'full' },
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'conditions-generales-de-vente', component: ConditionsVenteComponent },
   { path: 'politique-de-confidentialite', component: PolitiqueConfidentialiteComponent },
   { path: 'boutique/success', component: SuccessComponent },
+  { path: 'boutique/cancel', component: CancelComponent },
+
 
 ];
 

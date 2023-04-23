@@ -29,6 +29,7 @@ import { ConditionsVenteComponent } from './conditions/conditions-vente/conditio
 import { PolitiqueConfidentialiteComponent } from './conditions/politique-confidentialite/politique-confidentialite.component';
 import { StepsModule } from 'primeng/steps';
 import { SuccessComponent } from './paiement/success/success.component';
+import { CancelComponent } from './paiement/cancel/cancel.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { SuccessComponent } from './paiement/success/success.component';
     ConditionsVenteComponent,
     PolitiqueConfidentialiteComponent,
     SuccessComponent,
+    CancelComponent,
 
   ],
   imports: [
