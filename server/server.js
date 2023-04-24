@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static("public"));
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({ origin: true, credentials: true, methods: 'POST,GET,PUT,OPTIONS,DELETE' }));
 
 const stripe = require("stripe")("sk_test_51My9R5GEdrsUZVAA5RFTP5Cj7ZODUsfZuL9ZehiIpABTeyuiah0Na7z4C4vHfBKc6XwZZWZ8tU8xYW0eYfZesblN00d7Bp9dem");
 
@@ -60,7 +60,6 @@ app.post("/checkout", async (req, resp, next) => {
     }
 });
 
-app.listen(4242, () => console.log("app is running on 4242"));
-
+exports.app = functions.https.onRequest(app)
 
 
