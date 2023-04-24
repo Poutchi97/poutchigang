@@ -10,7 +10,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 app.use(cors({ origin: true, credentials: true }));
 
-const stripe = require("stripe")(serverKey);
+const stripe = require("stripe")("sk_test_51My9R5GEdrsUZVAA5RFTP5Cj7ZODUsfZuL9ZehiIpABTeyuiah0Na7z4C4vHfBKc6XwZZWZ8tU8xYW0eYfZesblN00d7Bp9dem");
 
 app.post("/checkout", async (req, resp, next) => {
     try {
@@ -44,8 +44,8 @@ app.post("/checkout", async (req, resp, next) => {
             )
             ),
             mode: "payment",
-            success_url: "http://localhost:4200/boutique/success",
-            cancel_url: "http://localhost:4200/boutique/cancel",
+            success_url: "http://poutchigang/boutique/success",
+            cancel_url: "http://poutchigang/boutique/cancel",
 
         });
 
