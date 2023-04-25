@@ -2,15 +2,18 @@ const express = require("express");
 const cors = require("cors");
 const bodyparser = require("body-parser");
 const serverKey = process.env.SERVER_KEY
-const port = process.env.PORt || 4242;
 
 const app = express();
-app.use(express.static(serverKey));
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 app.use(cors({ origin: true, credentials: true, methods: 'POST,GET,PUT,OPTIONS,DELETE' }));
 
-const stripe = require("stripe")();
+const stripe = require("stripe")(serverKey);
+app.get("/", (req, resp) => {
+
+    console.log("YOUPIIIIE");
+
+});
 
 app.post("/checkout", async (req, resp, next) => {
     try {
@@ -44,8 +47,8 @@ app.post("/checkout", async (req, resp, next) => {
             )
             ),
             mode: "payment",
-            success_url: "http://poutchigang/boutique/success",
-            cancel_url: "http://poutchigang/boutique/cancel",
+            success_url: "https://poutchigang.be/boutique/success",
+            cancel_url: "https://poutchigang.be/boutique/cancel",
 
         });
 
@@ -59,7 +62,8 @@ app.post("/checkout", async (req, resp, next) => {
 
     }
 });
+const port = process.env.PORT || 4242;
 
-exports.app = functions.https.onRequest(app)
+app.listen(port, () => console.log(`server listening on port ${port}`));
 
 

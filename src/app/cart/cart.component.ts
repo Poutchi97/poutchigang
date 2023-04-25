@@ -92,7 +92,7 @@ export class CartComponent {
 
 
   onCheckout() {
-    this._http.post('https://gymbro-3ac3f.web.app/checkout', {
+    this._http.post('https://poutchigang.herokuapp.com/checkout', {
       items: this.produitsStorage
     }).subscribe(async (res: any) => {
       let stripe = await loadStripe("pk_test_51My9R5GEdrsUZVAABXqIzlYI9G3vVXtgWeLNbRQGTLCD6xaEdrZnwUyYPA0i3qIEeE1jv0MdXMrACZaFLpp77pG0001X5dVJOF");
