@@ -95,10 +95,9 @@ export class CartComponent {
     this._http.post('https://poutchigang.herokuapp.com/checkout', {
       items: this.produitsStorage
     }).subscribe(async (res: any) => {
-      let stripe = await loadStripe("pk_test_51My9R5GEdrsUZVAABXqIzlYI9G3vVXtgWeLNbRQGTLCD6xaEdrZnwUyYPA0i3qIEeE1jv0MdXMrACZaFLpp77pG0001X5dVJOF");
+      let stripe = await loadStripe("pk_live_51My9R5GEdrsUZVAAk9EKEGVbG92vlhiLeTEW0KCtJ0kW6UkCDeQmPT1AHJNQnfmarc7rqQHkcSdf1uScladNz5So00gtB9ChwS");
       stripe?.redirectToCheckout({
         sessionId: res.id,
-
       });
     });
   }

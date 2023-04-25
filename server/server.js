@@ -3,10 +3,8 @@ const cors = require("cors");
 const bodyparser = require("body-parser");
 const path = require("path");
 const serverKey = process.env.SERVER_KEY
-const clientKey = process.env.CLIENT_KEY
 
 const app = express();
-app.use(express.static(__dirname + '/dist/poutchigang'))
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 app.use(cors({ origin: true, credentials: true, methods: 'POST,GET,PUT,OPTIONS,DELETE' }));
@@ -55,9 +53,7 @@ app.post("/checkout", async (req, resp, next) => {
 
         });
 
-        resp.status(200).json(
-            session
-        )
+        resp.status(200).json(session)
 
 
     } catch (error) {
@@ -66,6 +62,7 @@ app.post("/checkout", async (req, resp, next) => {
 
     }
 });
+
 const port = process.env.PORT || 4242;
 
 app.listen(port, () => console.log(`server listening on port ${port}`));
