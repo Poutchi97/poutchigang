@@ -36,22 +36,22 @@ export class ProduitsService {
 
 
       },
+      // {
+      //   Id: 2,
+      //   Title: "Poutchi Nrv",
+      //   Categorie: "Hoodies",
+      //   Price: 41.99,
+      //   Quantity: 0,
+      //   Taille: ["S", "M", "L", "XL", "XXL"],
+      //   Type: TypeProduit.Vetement,
+      //   Image: "../../../assets/images/nrv.png",
+      //   ImageCheckout: "./src/assets/images/nrv.jpg",
+      //   SecImage: "../../../assets/images/gymbro.png",
+      //   Description: "Le pull NRV est la pièce parfaite pour les amateurs de musculation et pour les journées de détente. Conçu avec des matériaux doux et confortables, ce pull est idéal pour la musculation ou pour une utilisation quotidienne. L'impression NRV discrète mais élégante montre votre amour pour la forme physique et votre style décontracté. Ce pull est facile à porter et à entretenir, et vous assurera un confort optimal peu importe ce que vous faites. Portez le pull NRV pour une allure décontractée et confortable à la fois en salle de sport et dans la vie de tous les jours."
+
+      // },
       {
         Id: 2,
-        Title: "Poutchi Nrv",
-        Categorie: "Hoodies",
-        Price: 41.99,
-        Quantity: 0,
-        Taille: ["S", "M", "L", "XL", "XXL"],
-        Type: TypeProduit.Vetement,
-        Image: "../../../assets/images/nrv.png",
-        ImageCheckout: "./src/assets/images/nrv.jpg",
-        SecImage: "../../../assets/images/gymbro.png",
-        Description: "Le pull NRV est la pièce parfaite pour les amateurs de musculation et pour les journées de détente. Conçu avec des matériaux doux et confortables, ce pull est idéal pour la musculation ou pour une utilisation quotidienne. L'impression NRV discrète mais élégante montre votre amour pour la forme physique et votre style décontracté. Ce pull est facile à porter et à entretenir, et vous assurera un confort optimal peu importe ce que vous faites. Portez le pull NRV pour une allure décontractée et confortable à la fois en salle de sport et dans la vie de tous les jours."
-
-      },
-      {
-        Id: 3,
         Title: "Poutchi Casquette",
         Categorie: "Casquette",
         Price: 24.99,
@@ -65,21 +65,21 @@ export class ProduitsService {
 
 
       },
-      {
-        Id: 4,
-        Title: "Poutchi Mousqueton",
-        Categorie: "Accessoire",
-        Price: 5,
-        Quantity: 0,
-        Taille: ["S", "M", "L", "XL", "XXL"],
-        Type: TypeProduit.Accessoire,
-        Image: "../../../assets/images/mousqueton.jpg",
-        ImageCheckout: "./src/assets/images/mousqueton.jpg",
-        SecImage: "../../../assets/images/mousqueton.jpg",
-        Description: "Le mousqueton Poutchi est le compagnon parfait pour tous les amateurs de fitness et d'aventure. Conçu à partir d'une imprimante 3D de haute qualité, ce mousqueton est léger, résistant et extrêmement durable. Il est idéal pour accrocher vos accessoires de musculation, vos chaussures, votre bouteille d'eau ou tout autre équipement essentiel à votre sac à dos. Avec un design élégant et moderne, le mousqueton Poutchi est un must-have pour tous les aventuriers urbains en quête d'un équipement fiable et fonctionnel. Que vous soyez en randonnée, en voyage ou à la salle de sport, le mousqueton Poutchi sera votre meilleur allié pour transporter votre équipement en toute sécurité."
+      // {
+      //   Id: 4,
+      //   Title: "Poutchi Mousqueton",
+      //   Categorie: "Accessoire",
+      //   Price: 5,
+      //   Quantity: 0,
+      //   Taille: ["S", "M", "L", "XL", "XXL"],
+      //   Type: TypeProduit.Accessoire,
+      //   Image: "../../../assets/images/mousqueton.jpg",
+      //   ImageCheckout: "./src/assets/images/mousqueton.jpg",
+      //   SecImage: "../../../assets/images/mousqueton.jpg",
+      //   Description: "Le mousqueton Poutchi est le compagnon parfait pour tous les amateurs de fitness et d'aventure. Conçu à partir d'une imprimante 3D de haute qualité, ce mousqueton est léger, résistant et extrêmement durable. Il est idéal pour accrocher vos accessoires de musculation, vos chaussures, votre bouteille d'eau ou tout autre équipement essentiel à votre sac à dos. Avec un design élégant et moderne, le mousqueton Poutchi est un must-have pour tous les aventuriers urbains en quête d'un équipement fiable et fonctionnel. Que vous soyez en randonnée, en voyage ou à la salle de sport, le mousqueton Poutchi sera votre meilleur allié pour transporter votre équipement en toute sécurité."
 
 
-      },
+      // },
     ]
   }
 

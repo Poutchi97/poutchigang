@@ -11,10 +11,15 @@ export class SliderService {
 
     this.sliderImages = [
       {
-        PreviewImageSrc: "../../../assets/images/new-beginnings-text.png",
-        Alt: "Be Patient",
-        Title: "Be Patient"
+        PreviewImageSrc: "../../../assets/images/poutchi_gang.jpg",
+        Alt: "Le gang",
+        Title: "Poutchi gang"
       },
+      // {
+      //   PreviewImageSrc: "../../../assets/images/nico_gang.jpg",
+      //   Alt: "Be Patient",
+      //   Title: "Be Patient"
+      // },
       {
         PreviewImageSrc: "../../../assets/images/presentation_transformation.jpg",
         Alt: "New beginnings",

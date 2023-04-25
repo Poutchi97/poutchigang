@@ -30,7 +30,5 @@ export class PresentationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    console.log(this.sliderImageSrc)
   }
 }
