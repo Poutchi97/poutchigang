@@ -10,7 +10,7 @@ import { SuccessComponent } from './paiement/success/success.component';
 import { CancelComponent } from './paiement/cancel/cancel.component';
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent, pathMatch: 'full' },
+  { path: '**', component: HomepageComponent, pathMatch: 'full' },
   { path: 'boutique', component: BoutiqueComponent },
   { path: 'boutique/produit/:id', component: ProduitUniqueComponent },
   { path: 'boutique/success', component: SuccessComponent },
@@ -18,8 +18,6 @@ const routes: Routes = [
   { path: 'coaching', component: CoachingComponent },
   { path: 'conditions-generales-de-vente', component: ConditionsVenteComponent },
   { path: 'politique-de-confidentialite', component: PolitiqueConfidentialiteComponent },
-
-
 
 
 ];
