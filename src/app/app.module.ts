@@ -30,7 +30,7 @@ import { PolitiqueConfidentialiteComponent } from './conditions/politique-confid
 import { StepsModule } from 'primeng/steps';
 import { SuccessComponent } from './paiement/success/success.component';
 import { CancelComponent } from './paiement/cancel/cancel.component';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +65,8 @@ import { CancelComponent } from './paiement/cancel/cancel.component';
     ToastModule,
     DropdownModule,
     FormsModule,
-    StepsModule
+    StepsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

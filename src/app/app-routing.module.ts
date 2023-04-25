@@ -10,20 +10,22 @@ import { SuccessComponent } from './paiement/success/success.component';
 import { CancelComponent } from './paiement/cancel/cancel.component';
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent, pathMatch: 'full' },
   { path: 'boutique', component: BoutiqueComponent },
-  { path: 'coaching', component: CoachingComponent },
   { path: 'boutique/produit/:id', component: ProduitUniqueComponent },
-  { path: 'conditions-generales-de-vente', component: ConditionsVenteComponent },
-  { path: 'politique-de-confidentialite', component: PolitiqueConfidentialiteComponent },
   { path: 'boutique/success', component: SuccessComponent },
   { path: 'boutique/cancel', component: CancelComponent },
+  { path: 'coaching', component: CoachingComponent },
+  { path: 'conditions-generales-de-vente', component: ConditionsVenteComponent },
+  { path: 'politique-de-confidentialite', component: PolitiqueConfidentialiteComponent },
+  { path: '**', component: HomepageComponent, pathMatch: 'full' },
+
+
 
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled', useHash: true },)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' },)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
