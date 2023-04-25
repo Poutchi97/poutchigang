@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyparser = require("body-parser");
 const serverKey = process.env.SERVER_KEY
+const clientKey = process.env.CLIENT_KEY
 
 const app = express();
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -47,13 +48,14 @@ app.post("/checkout", async (req, resp, next) => {
             )
             ),
             mode: "payment",
-            success_url: "https://poutchigang.be/boutique/success",
+            success_url: "https://poutchigang.be/boutique/success?session_id={CHECKOUT_SESSION_ID}",
             cancel_url: "https://poutchigang.be/boutique/cancel",
 
         });
 
         resp.status(200).json(
-            session)
+            session
+        )
 
 
     } catch (error) {
