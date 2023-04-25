@@ -1,18 +1,20 @@
 const express = require("express");
 const cors = require("cors");
 const bodyparser = require("body-parser");
+const path = require("path");
 const serverKey = process.env.SERVER_KEY
 const clientKey = process.env.CLIENT_KEY
 
 const app = express();
+app.use(express.static(__dirname + '/dist/poutchigang'))
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 app.use(cors({ origin: true, credentials: true, methods: 'POST,GET,PUT,OPTIONS,DELETE' }));
 
 const stripe = require("stripe")(serverKey);
-app.get("/", (req, resp) => {
 
-    console.log("YOUPIIIIE");
+app.get("/*", (req, resp) => {
+    resp.sendFile(path.join(__dirname + 'dist/poutchigang/index.html'))
 
 });
 
