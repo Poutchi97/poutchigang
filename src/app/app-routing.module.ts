@@ -8,6 +8,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ProduitUniqueComponent } from './produit-unique/produit-unique.component';
 import { SuccessComponent } from './paiement/success/success.component';
 import { CancelComponent } from './paiement/cancel/cancel.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, pathMatch: 'full' },
@@ -25,6 +26,11 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' },)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    {
+      provide: LocationStrategy, useClass: HashLocationStrategy
+    }
+  ],
 })
 export class AppRoutingModule { }
