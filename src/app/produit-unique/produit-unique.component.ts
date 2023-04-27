@@ -6,6 +6,8 @@ import { ICatalogue } from '../interfaces/icatalogue';
 import { CartService } from '../shared/services/cart.service';
 import { LocalstorageService } from '../shared/services/localstorage.service';
 import { ProduitsService } from '../shared/services/produits.service';
+import { ISlider } from '../interfaces/islider';
+import { SliderService } from '../shared/services/slider.service';
 
 @Component({
   selector: 'app-produit-unique',
@@ -15,6 +17,8 @@ import { ProduitsService } from '../shared/services/produits.service';
 })
 export class ProduitUniqueComponent {
   public faArrowLeft = faArrowLeft;
+  public sliderImageSrc: any = this._sliderImage.sliderImagesUnique;
+
   public catalogue: ICatalogue[] = this._produits.catalogue;
   public idProductToDisplay: any;
   public currentProducToDisplay: any;
@@ -25,6 +29,22 @@ export class ProduitUniqueComponent {
   public quantitySelected: number = 1;
   public numbersArticle: number[] = [];
   public littleNavigation: string = "";
+  public currentImagesToDisplay!: any;
+
+  responsiveOptions: any[] = [
+    {
+      breakpoint: '1024px',
+      numVisible: 5
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 3
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1
+    }
+  ];
 
   // public produits!: ICatalogue[];
 
@@ -35,6 +55,8 @@ export class ProduitUniqueComponent {
     private _ar: ActivatedRoute,
     private _storage: LocalstorageService,
     private _messageService: MessageService,
+    private _sliderImage: SliderService
+
 
   ) { }
 
@@ -47,6 +69,14 @@ export class ProduitUniqueComponent {
 
   public getOneProduct() {
     this.currentProducToDisplay = this.catalogue[this.idProductToDisplay - 1];
+    this.sliderImageSrc.forEach((element: any) => {
+      if (element.Id == this.idProductToDisplay) {
+        this.currentImagesToDisplay = element;
+        console.log('this.currentImagesToDisplay', this.currentImagesToDisplay);
+
+      }
+    });
+
     this.checkTypeProduct();
   }
 

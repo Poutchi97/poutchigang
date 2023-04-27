@@ -18,10 +18,23 @@
                     </h1>
                 </div>
 
-                <div class="mb-16 rounded-md flex flex-col justify-center mx-2 my-2">
+                <div class="mb-16 rounded- mx-2 my-2">
                     <div data-aos="zoom-in" data-aos-delay="150"
                         class=" rounded-md flex justify-center image_container">
-                        <img class="rounded-md" [src]="currentProducToDisplay.Image" alt="gymbro" width="425">
+                        <!-- <img class="rounded-md" [src]="currentProducToDisplay.Image" alt="gymbro" width="800"> -->
+
+                        <p-galleria [value]="currentImagesToDisplay.PreviewImageSrc"
+                            [responsiveOptions]="responsiveOptions" [circular]="true" [numVisible]="5">
+                            <ng-template pTemplate="item" let-item>
+                                <img [src]="item"
+                                    style="width: 100%; display: block; width: 800px; object-fit: cover;" />
+                            </ng-template>
+                            <ng-template pTemplate="thumbnail" let-item>
+                                <div class="w-auto h-40">
+                                    <img [src]="item" style="display: block; object-fit: cover; height: 100%;" />
+                                </div>
+                            </ng-template>
+                        </p-galleria>
                     </div>
                 </div>
 

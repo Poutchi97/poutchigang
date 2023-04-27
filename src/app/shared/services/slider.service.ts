@@ -7,11 +7,14 @@ import { ISlider } from 'src/app/interfaces/islider';
 export class SliderService {
 
   public sliderImages!: ISlider[];
+  public sliderImagesUnique: ISlider[] = [];
+  private imagesSrc: string = "../../../assets/images/";
   constructor() {
 
     this.sliderImages = [
       {
-        PreviewImageSrc: "../../../assets/images/poutchi_gang.jpg",
+        Id: -1,
+        PreviewImageSrc: ["../../../assets/images/poutchi_gang.jpg"],
         Alt: "Le gang",
         Title: "Poutchi gang"
       },
@@ -20,12 +23,33 @@ export class SliderService {
       //   Alt: "Be Patient",
       //   Title: "Be Patient"
       // },
+      // {
+      //   PreviewImageSrc: "../../../assets/images/presentation_transformation.jpg",
+      //   Alt: "New beginnings",
+      //   Title: "New beginnings"
+      // }
+    ];
+
+    this.sliderImagesUnique = [
       {
-        PreviewImageSrc: "../../../assets/images/presentation_transformation.jpg",
-        Alt: "New beginnings",
-        Title: "New beginnings"
+        Id: 1,
+        PreviewImageSrc: ["../../../assets/images/gymbro.png"],
+        Alt: "tshirt",
+        Title: "tshirt"
+      }, {
+        Id: 2,
+        PreviewImageSrc: [
+          `${this.imagesSrc}Poutchicasquette.png`,
+          `${this.imagesSrc}casquette_dos.png`,
+          `${this.imagesSrc}casquette_droite.png`,
+          `${this.imagesSrc}casquette_gauche.png`,
+          `${this.imagesSrc}casquette_haut.png`],
+        Alt: "casquette",
+        Title: "casquette"
       }
     ]
 
   }
+
+
 }

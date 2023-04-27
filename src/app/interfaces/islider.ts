@@ -1,5 +1,6 @@
 export interface ISlider {
-    PreviewImageSrc: string,
+    Id: number,
+    PreviewImageSrc: string[],
     Alt: string,
     Title: string
 }

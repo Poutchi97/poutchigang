@@ -11,11 +11,6 @@ app.use(cors({ origin: true, credentials: true, methods: 'POST,GET,PUT,OPTIONS,D
 
 const stripe = require("stripe")(serverKey);
 
-app.get("/*", (req, resp) => {
-    resp.sendFile(path.join(__dirname + 'dist/poutchigang/index.html'))
-
-});
-
 app.post("/checkout", async (req, resp, next) => {
     try {
 
