@@ -30,6 +30,7 @@ export class ProduitUniqueComponent {
   public numbersArticle: number[] = [];
   public littleNavigation: string = "";
   public currentImagesToDisplay!: any;
+  public currentImage: number = 0;
 
   responsiveOptions: any[] = [
     {
@@ -138,5 +139,9 @@ export class ProduitUniqueComponent {
   public tailleSelectedStyle(taille: string) {
     this.tailleSelected = taille;
     this.isTailleSelected = true;
+  }
+
+  public setImage(id: number) {
+    this.currentImage = id;
   }
 }

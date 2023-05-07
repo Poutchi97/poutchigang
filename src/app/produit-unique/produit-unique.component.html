@@ -18,12 +18,26 @@
                     </h1>
                 </div>
 
-                <div class="mb-16 rounded- mx-2 my-2">
-                    <div data-aos="zoom-in" data-aos-delay="150"
-                        class=" rounded-md flex justify-center image_container">
-                        <!-- <img class="rounded-md" [src]="currentProducToDisplay.Image" alt="gymbro" width="800"> -->
+                <div class="mb-16">
+                    <div data-aos="zoom-in" data-aos-delay="150" class=" rounded-md flex image_container">
 
-                        <p-galleria [value]="currentImagesToDisplay.PreviewImageSrc"
+                        <div class="mr-2">
+                            <img *ngFor="let item of currentImagesToDisplay.PreviewImageSrc; let id = index"
+                                [src]="item.src" alt="#" width="150"
+                                class="hover:scale-[1.03] hover:cursor-pointer mb-2 rounded-lg bg-gray-200"
+                                (click)="setImage(id)">
+                        </div>
+
+                        <div>
+                            <ng-container *ngFor="let item of currentImagesToDisplay.PreviewImageSrc">
+                                <img class="rounded-md bg-gray-200" *ngIf="item.id == currentImage" [src]="item.src"
+                                    alt="gymbro" width="800">
+                            </ng-container>
+
+                        </div>
+
+
+                        <!-- <p-galleria [value]="currentImagesToDisplay.PreviewImageSrc"
                             [responsiveOptions]="responsiveOptions" [circular]="true" [numVisible]="5">
                             <ng-template pTemplate="item" let-item>
                                 <img [src]="item"
@@ -34,7 +48,7 @@
                                     <img [src]="item" style="display: block; object-fit: cover; height: 100%;" />
                                 </div>
                             </ng-template>
-                        </p-galleria>
+                        </p-galleria> -->
                     </div>
                 </div>
 
@@ -46,7 +60,7 @@
             </div>
 
             <div class="flex flex-wrap mb-9 items-center" *ngIf="displayTaille">
-                <button data-aos="fade-up" data-aos-delay="350" *ngFor="let taille of currentProducToDisplay.Taille"
+                <button data-aos="fade-up" data-aos-delay="300" *ngFor="let taille of currentProducToDisplay.Taille"
                     [ngClass]="{'taille-selected': tailleSelected == taille}" (click)="tailleSelectedStyle(taille)"
                     class="mr-1 w-14 h-10 rounded-lg border text-black border-blue-600 max-sm:w-10  hover:text-white hover:bg-blue-600">{{taille}}</button>
 
@@ -57,15 +71,15 @@
             </div>
 
             <div class="flex justify-between w-52 mb-6">
-                <div data-aos="fade-up" data-aos-delay="500" class="z-50">
+                <div data-aos="fade-up" data-aos-delay="400" class="z-50">
                     <p-dropdown [options]="numbersArticle" [(ngModel)]="quantitySelected"></p-dropdown>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="min-h-[50px] min-w-[100px] flex items-center">
+                <div data-aos="fade-up" data-aos-delay="400" class="min-h-[50px] min-w-[100px] flex items-center">
                     <span class=" price text-lg font-bold my-1">{{currentProducToDisplay.Price}} €</span>
                     <!-- <p-dropdown [options]="quantity" [(ngModel)]="quantitySelected" optionLabel="Quantité"></p-dropdown> -->
                 </div>
             </div>
-            <div data-aos="fade-up" data-aos-delay="550" data-aos-offset="0" class="min-h-[50px] flex items-end">
+            <div data-aos="fade-up" data-aos-delay="400" data-aos-offset="0" class="min-h-[50px] flex items-end">
                 <button (click)="addItemToStorage()"
                     class="rounded-md bg-blue-600 text-white transition duration-300 p-2 w-24 hover:bg-blue-700">
                     Acheter

@@ -16,9 +16,10 @@
                 rounded-md flex flex-col justify-center mx-2 my-2 cursor-pointer">
                     <div class="rounded-lg flex justify-center image_container" data-aos="zoom-in-down"
                         data-aos-delay="">
-                        <img (click)="displayDetails(i)" class="rounded-lg hover:scale-[1.02] transition-all"
-                            [src]="itemCatalogue.Image" alt="gymbro" (mouseover)="itemCatalogue.SecImage"
-                            (mouseout)="itemCatalogue.Image" width="500">
+                        <img (click)="displayDetails(i)"
+                            class="rounded-lg hover:scale-[1.02] transition-all bg-gray-100" [src]="itemCatalogue.Image"
+                            alt="gymbro" (mouseover)="itemCatalogue.SecImage" (mouseout)="itemCatalogue.Image"
+                            width="500">
                     </div>
                     <div class="text__description text-center pt-3" data-aos="fade-up">
                         <!-- <span class="text-gray-400">{{itemCatalogue.Categorie}}</span> -->

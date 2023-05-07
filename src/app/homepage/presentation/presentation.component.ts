@@ -9,7 +9,7 @@ import { SliderService } from 'src/app/shared/services/slider.service';
 })
 export class PresentationComponent implements OnInit {
 
-  public sliderImageSrc: ISlider[] = this._sliderImage.sliderImages;
+  // public sliderImageSrc: ISlider[] = this._sliderImage.sliderImages;
 
   responsiveOptions: any[] = [
     {

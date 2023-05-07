@@ -33,17 +33,22 @@ export class SliderService {
     this.sliderImagesUnique = [
       {
         Id: 1,
-        PreviewImageSrc: ["../../../assets/images/gymbro.png"],
+        PreviewImageSrc: [
+          {
+            'id': 0, 'src': `${this.imagesSrc}gymbro.png`
+          }
+        ],
         Alt: "tshirt",
         Title: "tshirt"
       }, {
         Id: 2,
         PreviewImageSrc: [
-          `${this.imagesSrc}Poutchicasquette.png`,
-          `${this.imagesSrc}casquette_dos.png`,
-          `${this.imagesSrc}casquette_droite.png`,
-          `${this.imagesSrc}casquette_gauche.png`,
-          `${this.imagesSrc}casquette_haut.png`],
+          { 'id': 0, 'src': `${this.imagesSrc}Poutchicasquette.png` },
+          { 'id': 1, 'src': `${this.imagesSrc}casquette_dos.png` },
+          { 'id': 2, 'src': `${this.imagesSrc}casquette_droite.png` },
+          { 'id': 3, 'src': `${this.imagesSrc}casquette_gauche.png` },
+          { 'id': 4, 'src': `${this.imagesSrc}casquette_haut.png` },
+        ],
         Alt: "casquette",
         Title: "casquette"
       }
