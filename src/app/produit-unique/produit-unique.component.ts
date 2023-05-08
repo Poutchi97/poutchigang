@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { MessageService } from 'primeng/api';
 import { ICatalogue } from '../interfaces/icatalogue';
 import { CartService } from '../shared/services/cart.service';
@@ -16,9 +16,15 @@ import { SliderService } from '../shared/services/slider.service';
   providers: [MessageService]
 })
 export class ProduitUniqueComponent {
+
+  @ViewChild('container') containerRef!: ElementRef;
+  @ViewChild('imageWrapper') imageWrapperRef!: ElementRef;
+
   public faArrowLeft = faArrowLeft;
   public sliderImageSrc: any = this._sliderImage.sliderImagesUnique;
 
+  public arrowRight: any = faCaretRight;
+  public arrowLeft: any = faCaretLeft;
   public catalogue: ICatalogue[] = this._produits.catalogue;
   public idProductToDisplay: any;
   public currentProducToDisplay: any;
@@ -31,6 +37,10 @@ export class ProduitUniqueComponent {
   public littleNavigation: string = "";
   public currentImagesToDisplay!: any;
   public currentImage: number = 0;
+
+  private isMouseDown = false;
+  private startX!: number;
+  private scrollLeft!: number;
 
   responsiveOptions: any[] = [
     {
@@ -142,6 +152,46 @@ export class ProduitUniqueComponent {
   }
 
   public setImage(id: number) {
+
     this.currentImage = id;
+  }
+
+  public imageByArrow(whatArrow: string) {
+    if (whatArrow == 'before' && this.currentImage !== 0) {
+      this.currentImage = this.currentImage - 1;
+    }
+    if (whatArrow == 'next' && this.currentImage < (this.currentImagesToDisplay.PreviewImageSrc.length - 1)) {
+      this.currentImage = this.currentImage + 1;
+      console.log(this.currentImagesToDisplay.PreviewImageSrc.length - 1);
+
+
+    }
+  }
+
+  onMouseDown(event: MouseEvent) {
+    this.isMouseDown = true;
+    this.startX = event.pageX - this.containerRef.nativeElement.offsetLeft;
+    this.scrollLeft = this.imageWrapperRef.nativeElement.scrollLeft;
+  }
+
+  onMouseLeave() {
+    this.isMouseDown = false;
+  }
+
+  onMouseUp() {
+    this.isMouseDown = false;
+  }
+
+  onMouseMove(event: MouseEvent) {
+    if (!this.isMouseDown) return;
+    event.preventDefault();
+    const x = event.pageX - this.containerRef.nativeElement.offsetLeft;
+    const walk = (x - this.startX) * 1; // ajuste la vitesse de défilement
+    this.imageWrapperRef.nativeElement.scrollLeft = this.scrollLeft - walk;
+  }
+
+  @HostListener('window:mouseup')
+  onGlobalMouseUp() {
+    this.isMouseDown = false;
   }
 }
