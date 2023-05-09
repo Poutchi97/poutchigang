@@ -100,6 +100,7 @@ export class CartComponent {
         sessionId: res.id,
       });
     });
+
   }
 
 

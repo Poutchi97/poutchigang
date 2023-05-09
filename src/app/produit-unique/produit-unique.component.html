@@ -35,7 +35,9 @@
                         </div>
 
                         <div class="" #container (mousedown)="onMouseDown($event)" (mouseleave)="onMouseLeave()"
-                            (mouseup)="onMouseUp()" (mousemove)="onMouseMove($event)">
+                            (mouseup)="onMouseUp()" (mousemove)="onMouseMove($event)"
+                            (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+                            (touchend)="onTouchEnd()">
                             <div #imageWrapper
                                 class="flex rounded-lg mx-9 overflow-hidden justify-between bg-gray-100 mt-2 max-md:mx-0">
                                 <img *ngFor="let item of currentImagesToDisplay.PreviewImageSrc; let id = index"

@@ -190,6 +190,27 @@ export class ProduitUniqueComponent {
     this.imageWrapperRef.nativeElement.scrollLeft = this.scrollLeft - walk;
   }
 
+
+  onTouchStart(event: TouchEvent) {
+    this.startX = event.touches[0].pageX - this.containerRef.nativeElement.offsetLeft;
+    this.scrollLeft = this.imageWrapperRef.nativeElement.scrollLeft;
+  }
+
+  onTouchMove(event: TouchEvent) {
+    const x = event.touches[0].pageX - this.containerRef.nativeElement.offsetLeft;
+    const walk = (x - this.startX) * 3; // ajuste la vitesse de défilement
+    this.imageWrapperRef.nativeElement.scrollLeft = this.scrollLeft - walk;
+  }
+
+  onTouchEnd() {
+    // Logique pour le toucher
+  }
+
+  @HostListener('window:touchend')
+  onGlobalTouchEnd() {
+    this.isMouseDown = false;
+  }
+
   @HostListener('window:mouseup')
   onGlobalMouseUp() {
     this.isMouseDown = false;

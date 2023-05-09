@@ -3,11 +3,11 @@ const cors = require("cors");
 const bodyparser = require("body-parser");
 const path = require("path");
 const serverKey = process.env.SERVER_KEY
-
 const app = express();
+
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
-app.use(cors({ origin: true, credentials: true, methods: 'POST,GET,PUT,OPTIONS,DELETE' }));
+app.use(cors({ origin: 'https://poutchigang.be', credentials: true }));
 
 const stripe = require("stripe")(serverKey);
 
@@ -48,7 +48,7 @@ app.post("/checkout", async (req, resp, next) => {
 
         });
 
-        resp.status(200).json(session)
+        resp.status(200).json(session);
 
 
     } catch (error) {
