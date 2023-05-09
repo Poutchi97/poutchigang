@@ -198,7 +198,7 @@ export class ProduitUniqueComponent {
 
   onTouchMove(event: TouchEvent) {
     const x = event.touches[0].pageX - this.containerRef.nativeElement.offsetLeft;
-    const walk = (x - this.startX) * 3; // ajuste la vitesse de défilement
+    const walk = (x - this.startX) * 1; // ajuste la vitesse de défilement
     this.imageWrapperRef.nativeElement.scrollLeft = this.scrollLeft - walk;
   }
 
