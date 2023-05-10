@@ -1,63 +1,82 @@
-<p-sidebar [(visible)]="display" position="right" class="flex item" styleClass="p-sidebar-md" [baseZIndex]="10000">
-    <div>
-        <ng-container class="bg-slate-400" *ngFor="let item of produitsStorage">
-            <div class="flex items-center justify-between pt-10 overflow-hidden max-lg:block">
-                <a routerLink="/boutique/produit/{{item.Id}}" target="_blank">
-                    <div class="flex items-center">
-                        <div class="p-5 m-5 bg-gray-200 rounded-md">
-                            <img class="rounded-sm" src="{{item.Image}}" alt="{{item.Title}}" width="75">
-                            <!-- <span class="absolute top-2 right-40">x</span> -->
-                            <!-- TODO: Ajouter une croix sur l'image dans un corner, afin de supprimer l'articule. Cela permettrait de supprimer le bouton corbeille et de libérer de l'espace dans le cart. -->
+<p-sidebar [(visible)]="display" position="right" class="flex item" [fullScreen]="isWideScreen"
+    styleClass="p-sidebar-md" [baseZIndex]="10000">
+    <div class="flex flex-col border-b-2 pb-5">
+        <div>
+            <h2>Mon panier</h2>
+        </div>
+    </div>
+    <!-- <ng-template pTemplate="header">
+
+    </ng-template> -->
+
+    <ng-template pTemplate="content">
+        <div class="pt-5">
+            <ng-container class="bg-slate-400 " *ngFor="let item of produitsStorage">
+                <div
+                    class="flex items-center justify-between overflow-hidden max-lg:block bg-stone-50 shadow-lg mb-3 rounded-xl hover:scale-[1.01] transition-all">
+                    <a routerLink="/boutique/produit/{{item.Id}}" target="_blank">
+                        <div class="flex items-center">
+                            <div class="p-5 m-5 rounded-md">
+                                <img class="rounded-lg" src="{{item.Image}}" alt="{{item.Title}}" width="200">
+                                <!-- <span class="absolute top-2 right-40">x</span> -->
+                                <!-- TODO: Ajouter une croix sur l'image dans un corner, afin de supprimer l'articule. Cela permettrait de supprimer le bouton corbeille et de libérer de l'espace dans le cart. -->
+                            </div>
                         </div>
+                    </a>
+
+                    <div class="flex w-1/2 flex-col max-lg:w-full max-lg:justify-between max-lg:px-5">
+
                         <div class="my-5 flex flex-col">
-                            <h2 class="py-1 text-blue-600">{{item.Title}}</h2>
+                            <h2 class="py-1 text-blue-600 text-lg font-bold">{{item.Title}}</h2>
                             <ng-container *ngFor="let taille of item.Taille">
                                 <span class="py-1" *ngIf="taille.length >= 1">Taille :
                                     <span class="font-semibold">{{taille}}</span>
                                 </span>
                             </ng-container>
 
-                            <span class="py-1">
-                                Prix : {{item.Price * item.Quantity | number: '1.2-2'}} €
-                            </span>
-                        </div>
-                    </div>
-                </a>
 
-                <div class="flex w-1/2 justify-evenly max-lg:w-full max-lg:justify-between max-lg:px-5">
-                    <div class="">
-                        <p>Quantité : <p-dropdown appendTo="body" class="" [options]="numbersArticle"
+                        </div>
+                        <div class="">
+
+                            <span class="py-1 pr-12">
+                                Prix : <span class="font-semibold">{{item.Price * item.Quantity | number: '1.2-2'}}
+                                    €</span>
+                            </span>
+                            <p-dropdown appendTo="body" class="" [options]="numbersArticle"
                                 (onChange)="calculeDuSousTotal(item.Id, item.Taille)"
                                 [(ngModel)]="item.Quantity"></p-dropdown>
-                        </p>
-                    </div>
 
-                    <div class="flex items-center">
-                        <fa-icon class="hover:text-red-600 hover:cursor-pointer" (click)="deleteItem(item.Id)"
-                            [icon]="faTrash"></fa-icon>
+                        </div>
+
+                        <div class="flex items-center">
+                            <button (click)="deleteItem(item.Id)"
+                                class="rounded-lg mr-3 font-bold bg-red-600 text-white transition duration-300 p-2 max-lg:w-full h-10 my-3 hover:bg-red-700">
+                                Supprimer</button>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-        </ng-container>
-    </div>
+            </ng-container>
+        </div>
+    </ng-template>
 
     <ng-template pTemplate="footer">
-        <div class="pb-5">
+        <div class="pb-5 border-t-2 pt-5">
             <ul>
-                <li class="flex justify-between">
-                    <h3 class="px-5">
-                        Total
+                <li class="flex justify-end">
+                    <h3 class="px-5 flex items-center">
+                        Total:
                     </h3>
-                    <span class="pr-10">
+                    <span class="font-bold text-lg">
                         {{totalToDisplay}} €
                     </span>
                 </li>
             </ul>
         </div>
 
-        <div class="w-full flex justify-end pr-6">
+        <div class="w-full flex justify-end">
             <button routerLink="/panier" (click)="changeDisplayOfCart()"
-                class="rounded-lg mr-3 font-bold bg-blue-600 text-white transition duration-300 p-2 w-32 h-12 hover:bg-blue-700 ">
+                class="rounded-lg font-bold bg-blue-600 text-white transition duration-300 p-2 w-full h-12 hover:bg-blue-700">
                 Payement
             </button>
         </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Renderer2 } from '@angular/core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ICatalogue } from '../interfaces/icatalogue';
 import { CartService } from '../shared/services/cart.service';
@@ -24,12 +24,15 @@ export class CartComponent {
   public numbersArticle: number[] = [];
   public quantitySelected!: number;
   public numbersArticleSelected: number = 1;
+  public isWideScreen: boolean = false;
 
   constructor(
     private _cart: CartService,
     private _storage: LocalstorageService,
-    private _http: HttpClient
+    private _http: HttpClient,
+    private _renderer: Renderer2
   ) {
+    this.isWideScreen = this.checkIfWideScreen();
 
   }
   ngOnInit(): void {
@@ -41,6 +44,15 @@ export class CartComponent {
     });
     this.getItem();
 
+  }
+
+  @HostListener('window:resize')
+  onWindowResize() {
+    this.isWideScreen = this.checkIfWideScreen();
+  }
+
+  private checkIfWideScreen(): boolean {
+    return this._renderer && window.innerWidth <= 640;
   }
 
   getItem() {
