@@ -3,18 +3,6 @@
     color: white;
 }
 
-.image_style{
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-    -khtml-user-select: none;
-    -o-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
 
 img::-moz-selection {
     background-color: transparent;
@@ -25,3 +13,4 @@ img::selection {
     background-color: transparent;
     color: #000;
 }
+

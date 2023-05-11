@@ -1,5 +1,6 @@
-<div class="bg-black">
-    <div class="navbar">
+<div class="bg-black pb-24">
+    <div class="navbar h-24 max-sm:h-20" [ngClass]="{'sticky': isSticky}"
+        [ngStyle]="{ 'background-color': navbarBackgroundColor }">
         <div class="logo" data-aos="fade-down" data-aos-delay="250">
             <a routerLink=""><span class="text-blue-500">Poutchi</span></a>
         </div>
@@ -7,14 +8,16 @@
         <nav class="button__container">
             <ul class="">
                 <li class="max-lg:hidden" data-aos="fade-down" data-aos-delay="300">
-                    <a routerLink="" class="hover:border-b-2 text-white border-blue-600">Accueil</a>
+                    <a routerLink=""
+                        class="hover:bg-blue-600 hover:p-4 hover:rounded-md transition-all text-white ">Accueil</a>
                 </li>
                 <li class="max-lg:hidden" data-aos="fade-down" data-aos-delay="350">
                     <a routerLink="/coaching"
-                        class="text-white hover:border-b-2 transition-all border-blue-600">Coaching</a>
+                        class="hover:bg-blue-600 hover:p-4 hover:rounded-md transition-all text-white ">Coaching</a>
                 </li>
                 <li class="max-lg:hidden" data-aos="fade-down" data-aos-delay="400">
-                    <a routerLink="/boutique" class="text-white hover:border-b-2 border-blue-600">Boutique</a>
+                    <a routerLink="/boutique"
+                        class="hover:bg-blue-600 hover:p-4 hover:rounded-md transition-all text-white ">Boutique</a>
                 </li>
             </ul>
 

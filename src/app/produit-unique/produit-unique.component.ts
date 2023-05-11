@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faArrowLeft, faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { MessageService } from 'primeng/api';
@@ -66,7 +66,8 @@ export class ProduitUniqueComponent {
     private _ar: ActivatedRoute,
     private _storage: LocalstorageService,
     private _messageService: MessageService,
-    private _sliderImage: SliderService
+    private _sliderImage: SliderService,
+    private _renderer: Renderer2,
 
 
   ) { }
@@ -76,6 +77,10 @@ export class ProduitUniqueComponent {
     this.idProductToDisplay = this._ar.snapshot.params['id'];
     this.getOneProduct();
     this.littleNavigation = this._router.url;
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      this._renderer.addClass(navbar, 'white-navbar');
+    }
   }
 
   public getOneProduct() {

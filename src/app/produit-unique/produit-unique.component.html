@@ -1,5 +1,5 @@
 <p-toast [breakpoints]="{'920px': {width: '90%', right: '150', left: '150'}}"></p-toast>
-<div class="flex top_vente__container justify-center flex-wrap pb-10 min-h-[calc(100vh-300px)]">
+<div class="bg-neutral-50 pt-24 flex top_vente__container justify-center flex-wrap pb-10 min-h-[calc(100vh-300px)]">
     <div class="flex flex-wrap justify-evenly w-full items-center">
 
         <div class="absolute top-40 left-20 max-xl:hidden">
@@ -26,8 +26,8 @@
                                 <fa-icon [icon]="arrowLeft" size="2xl" (click)="imageByArrow('before')"></fa-icon>
                             </div>
                             <ng-container *ngFor="let item of currentImagesToDisplay.PreviewImageSrc">
-                                <img class="rounded-md bg-gray-200 mx-5 max-sm:mx-2" *ngIf="item.id == currentImage"
-                                    [src]="item.src" alt="gymbro" width="800">
+                                <img class="rounded-lg bg-white mx-5 max-sm:mx-2 shadow-md"
+                                    *ngIf="item.id == currentImage" [src]="item.src" alt="gymbro" width="800">
                             </ng-container>
                             <div class="cursor-pointer">
                                 <fa-icon [icon]="arrowRight" size="2xl" (click)="imageByArrow('next')"></fa-icon>
@@ -39,10 +39,10 @@
                             (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
                             (touchend)="onTouchEnd()">
                             <div #imageWrapper
-                                class="flex rounded-lg mx-9 overflow-hidden justify-between bg-gray-100 mt-2 max-md:mx-0 ">
+                                class="flex rounded-lg mx-9 overflow-hidden justify-between shadow-md bg-gray-100 mt-2 max-md:mx-0 ">
                                 <img *ngFor="let item of currentImagesToDisplay.PreviewImageSrc; let id = index"
                                     [src]="item.src" alt="#" width="150"
-                                    class="hover:scale-[1.03] cursor-pointer mb-2 rounded-lg bg-gray-200 image_style object-cover max-md:cursor-grab"
+                                    class="hover:scale-[1.03] cursor-pointer rounded-none bg-white image_style object-cover max-md:cursor-grab"
                                     (click)="setImage(id)">
                             </div>
                         </div>
@@ -64,15 +64,14 @@
                 </div>
 
                 <div class="mb-10 flex justify-center">
-                    <p data-aos="fade-up" data-aos-delay="350" class="min-w-[275px] text-justify">
+                    <p class="min-w-[275px] text-justify">
                         {{currentProducToDisplay.Description}}
                     </p>
                 </div>
             </div>
 
             <div class="flex flex-wrap mb-9 items-center" *ngIf="displayTaille">
-                <button data-aos="fade-up" data-aos-delay="300" data-aos-offset="0"
-                    *ngFor="let taille of currentProducToDisplay.Taille"
+                <button *ngFor="let taille of currentProducToDisplay.Taille"
                     [ngClass]="{'taille-selected': tailleSelected == taille}" (click)="tailleSelectedStyle(taille)"
                     class="mr-1 w-14 h-10 rounded-lg border text-black border-blue-600 max-sm:w-10  hover:text-white hover:bg-blue-600">{{taille}}</button>
 
@@ -83,15 +82,15 @@
             </div>
 
             <div class="flex justify-between w-52 mb-6">
-                <div data-aos="fade-up" data-aos-delay="400" class="z-50">
+                <div class="z-50">
                     <p-dropdown [options]="numbersArticle" [(ngModel)]="quantitySelected"></p-dropdown>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="400" class="min-h-[50px] min-w-[100px] flex items-center">
+                <div class="min-h-[50px] min-w-[100px] flex items-center">
                     <span class=" price text-lg font-bold my-1">{{currentProducToDisplay.Price}} €</span>
                     <!-- <p-dropdown [options]="quantity" [(ngModel)]="quantitySelected" optionLabel="Quantité"></p-dropdown> -->
                 </div>
             </div>
-            <div data-aos="fade-up" data-aos-delay="400" class="min-h-[50px] flex items-end">
+            <div class="min-h-[50px] flex items-end">
                 <button (click)="addItemToStorage()"
                     class="rounded-md bg-blue-600 text-white transition duration-300 p-2 w-24 hover:bg-blue-700">
                     Acheter
